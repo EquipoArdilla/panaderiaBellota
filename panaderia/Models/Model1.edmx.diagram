@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6aab463b5ae4196a85b0f745308367b" Name="Diagram1" ZoomLevel="114">
+        <EntityTypeShape EntityType="Database1Model.linea" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.receta" Width="1.5" PointX="10.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.producto" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.detalle_receta" Width="1.5" PointX="8.5" PointY="0.5" />
+        <AssociationConnector Association="Database1Model.recetadetalle_receta" />
+        <AssociationConnector Association="Database1Model.productodetalle_receta" />
+        <EntityTypeShape EntityType="Database1Model.familia" Width="1.5" PointX="2.5" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.lineafamilia" />
+        <AssociationConnector Association="Database1Model.familiaproducto" />
+        <EntityTypeShape EntityType="Database1Model.usuario" Width="1.5" PointX="0.5" PointY="2.625" />
+        <AssociationConnector Association="Database1Model.usuarioproducto" />
+        <EntityTypeShape EntityType="Database1Model.rolusuario" Width="1.5" PointX="2.5" PointY="3.375" />
+        <AssociationConnector Association="Database1Model.rolusuariousuario" />
+        <EntityTypeShape EntityType="Database1Model.proveedor" Width="1.5" PointX="8.25" PointY="3.5" />
+        <EntityTypeShape EntityType="Database1Model.compra" Width="1.5" PointX="6.25" PointY="3" />
+        <AssociationConnector Association="Database1Model.proveedorcompra" />
+        <AssociationConnector Association="Database1Model.productocompra" />
+        <EntityTypeShape EntityType="Database1Model.produccion" Width="1.5" PointX="11.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.medida" Width="1.5" PointX="6.25" PointY="0.875" />
+        <AssociationConnector Association="Database1Model.medidadetalle_receta" />
+        <AssociationConnector Association="Database1Model.recetaproduccion" />
+        <AssociationConnector Association="Database1Model.medidaproducto" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
