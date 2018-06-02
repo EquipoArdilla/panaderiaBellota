@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="linea" EntityType="Database1Model.Store.linea" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="receta" EntityType="Database1Model.Store.receta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="producto" EntityType="Database1Model.Store.producto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="detalle_receta" EntityType="Database1Model.Store.detalle_receta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="familia" EntityType="Database1Model.Store.familia" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario" EntityType="Database1Model.Store.usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="rolusuario" EntityType="Database1Model.Store.rolusuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="proveedor" EntityType="Database1Model.Store.proveedor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="compra" EntityType="Database1Model.Store.compra" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="produccion" EntityType="Database1Model.Store.produccion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="medida" EntityType="Database1Model.Store.medida" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="recetadetalle_receta" Association="Database1Model.Store.recetadetalle_receta">
+      <End Role="receta" EntitySet="receta" />
+      <End Role="detalle_receta" EntitySet="detalle_receta" />
+    </AssociationSet>
+    <AssociationSet Name="productodetalle_receta" Association="Database1Model.Store.productodetalle_receta">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="detalle_receta" EntitySet="detalle_receta" />
+    </AssociationSet>
+    <AssociationSet Name="lineafamilia" Association="Database1Model.Store.lineafamilia">
+      <End Role="linea" EntitySet="linea" />
+      <End Role="familia" EntitySet="familia" />
+    </AssociationSet>
+    <AssociationSet Name="familiaproducto" Association="Database1Model.Store.familiaproducto">
+      <End Role="familia" EntitySet="familia" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="usuarioproducto" Association="Database1Model.Store.usuarioproducto">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="rolusuariousuario" Association="Database1Model.Store.rolusuariousuario">
+      <End Role="rolusuario" EntitySet="rolusuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="proveedorcompra" Association="Database1Model.Store.proveedorcompra">
+      <End Role="proveedor" EntitySet="proveedor" />
+      <End Role="compra" EntitySet="compra" />
+    </AssociationSet>
+    <AssociationSet Name="productocompra" Association="Database1Model.Store.productocompra">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="compra" EntitySet="compra" />
+    </AssociationSet>
+    <AssociationSet Name="medidadetalle_receta" Association="Database1Model.Store.medidadetalle_receta">
+      <End Role="medida" EntitySet="medida" />
+      <End Role="detalle_receta" EntitySet="detalle_receta" />
+    </AssociationSet>
+    <AssociationSet Name="recetaproduccion" Association="Database1Model.Store.recetaproduccion">
+      <End Role="receta" EntitySet="receta" />
+      <End Role="produccion" EntitySet="produccion" />
+    </AssociationSet>
+    <AssociationSet Name="medidaproducto" Association="Database1Model.Store.medidaproducto">
+      <End Role="medida" EntitySet="medida" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="linea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" Nullable="true" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="receta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="formato" Type="int" Nullable="false" />
+    <Property Name="lineaId" Type="int" Nullable="false" />
+    <Property Name="familiaId" Type="int" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+    <Property Name="precio_venta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="medidaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detalle_receta">
+    <Key>
+      <PropertyRef Name="recetaId" />
+      <PropertyRef Name="productoId" />
+    </Key>
+    <Property Name="cantidad" Type="decimal" Nullable="false" />
+    <Property Name="recetaId" Type="int" Nullable="false" />
+    <Property Name="productoId" Type="int" Nullable="false" />
+    <Property Name="medidaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="familia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lineaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="clave" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="rolusuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rolusuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="proveedor">
+    <Key>
+      <PropertyRef Name="rut" />
+    </Key>
+    <Property Name="rut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="compra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="precio_neto" Type="int" Nullable="false" />
+    <Property Name="proveedor_rut" Type="int" Nullable="false" />
+    <Property Name="productoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="produccion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_produccion" Type="datetime" Nullable="false" />
+    <Property Name="recetaId" Type="int" Nullable="false" />
+    <Property Name="valor" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="medida">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="recetadetalle_receta">
+    <End Role="receta" Type="Database1Model.Store.receta" Multiplicity="1" />
+    <End Role="detalle_receta" Type="Database1Model.Store.detalle_receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="receta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detalle_receta">
+        <PropertyRef Name="recetaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="productodetalle_receta">
+    <End Role="producto" Type="Database1Model.Store.producto" Multiplicity="1" />
+    <End Role="detalle_receta" Type="Database1Model.Store.detalle_receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detalle_receta">
+        <PropertyRef Name="productoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lineafamilia">
+    <End Role="linea" Type="Database1Model.Store.linea" Multiplicity="1" />
+    <End Role="familia" Type="Database1Model.Store.familia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="linea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="familia">
+        <PropertyRef Name="lineaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="familiaproducto">
+    <End Role="familia" Type="Database1Model.Store.familia" Multiplicity="1" />
+    <End Role="producto" Type="Database1Model.Store.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="familia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="familiaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="usuarioproducto">
+    <End Role="usuario" Type="Database1Model.Store.usuario" Multiplicity="1" />
+    <End Role="producto" Type="Database1Model.Store.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rolusuariousuario">
+    <End Role="rolusuario" Type="Database1Model.Store.rolusuario" Multiplicity="1" />
+    <End Role="usuario" Type="Database1Model.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rolusuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="rolusuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="proveedorcompra">
+    <End Role="proveedor" Type="Database1Model.Store.proveedor" Multiplicity="1" />
+    <End Role="compra" Type="Database1Model.Store.compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedor">
+        <PropertyRef Name="rut" />
+      </Principal>
+      <Dependent Role="compra">
+        <PropertyRef Name="proveedor_rut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="productocompra">
+    <End Role="producto" Type="Database1Model.Store.producto" Multiplicity="1" />
+    <End Role="compra" Type="Database1Model.Store.compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="compra">
+        <PropertyRef Name="productoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="medidadetalle_receta">
+    <End Role="medida" Type="Database1Model.Store.medida" Multiplicity="1" />
+    <End Role="detalle_receta" Type="Database1Model.Store.detalle_receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detalle_receta">
+        <PropertyRef Name="medidaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="recetaproduccion">
+    <End Role="receta" Type="Database1Model.Store.receta" Multiplicity="1" />
+    <End Role="produccion" Type="Database1Model.Store.produccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="receta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="produccion">
+        <PropertyRef Name="recetaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="medidaproducto">
+    <End Role="medida" Type="Database1Model.Store.medida" Multiplicity="1" />
+    <End Role="producto" Type="Database1Model.Store.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="medidaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="linea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="familia" Relationship="Database1Model.lineafamilia" FromRole="linea" ToRole="familia" />
+        </EntityType>
+        <EntityType Name="receta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="detalle_receta" Relationship="Database1Model.recetadetalle_receta" FromRole="receta" ToRole="detalle_receta" />
+          <NavigationProperty Name="produccion" Relationship="Database1Model.recetaproduccion" FromRole="receta" ToRole="produccion" />
+        </EntityType>
+        <EntityContainer Name="PanaderiaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="linea" EntityType="Self.linea" />
+          <EntitySet Name="receta" EntityType="Self.receta" />
+          <EntitySet Name="producto" EntityType="Database1Model.producto" />
+          <EntitySet Name="detalle_receta" EntityType="Database1Model.detalle_receta" />
+          <AssociationSet Name="recetadetalle_receta" Association="Database1Model.recetadetalle_receta">
+            <End Role="receta" EntitySet="receta" />
+            <End Role="detalle_receta" EntitySet="detalle_receta" />
+          </AssociationSet>
+          <AssociationSet Name="productodetalle_receta" Association="Database1Model.productodetalle_receta">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="detalle_receta" EntitySet="detalle_receta" />
+          </AssociationSet>
+          <EntitySet Name="familia" EntityType="Database1Model.familia" />
+          <AssociationSet Name="lineafamilia" Association="Database1Model.lineafamilia">
+            <End Role="linea" EntitySet="linea" />
+            <End Role="familia" EntitySet="familia" />
+          </AssociationSet>
+          <AssociationSet Name="familiaproducto" Association="Database1Model.familiaproducto">
+            <End Role="familia" EntitySet="familia" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <EntitySet Name="usuario" EntityType="Database1Model.usuario" />
+          <AssociationSet Name="usuarioproducto" Association="Database1Model.usuarioproducto">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <EntitySet Name="rolusuario" EntityType="Database1Model.rolusuario" />
+          <AssociationSet Name="rolusuariousuario" Association="Database1Model.rolusuariousuario">
+            <End Role="rolusuario" EntitySet="rolusuario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <EntitySet Name="proveedor" EntityType="Database1Model.proveedor" />
+          <EntitySet Name="compra" EntityType="Database1Model.compra" />
+          <AssociationSet Name="proveedorcompra" Association="Database1Model.proveedorcompra">
+            <End Role="proveedor" EntitySet="proveedor" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+          <AssociationSet Name="productocompra" Association="Database1Model.productocompra">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+          <EntitySet Name="produccion" EntityType="Database1Model.produccion" />
+          <EntitySet Name="medida" EntityType="Database1Model.medida" />
+          <AssociationSet Name="medidadetalle_receta" Association="Database1Model.medidadetalle_receta">
+            <End Role="medida" EntitySet="medida" />
+            <End Role="detalle_receta" EntitySet="detalle_receta" />
+          </AssociationSet>
+          <AssociationSet Name="recetaproduccion" Association="Database1Model.recetaproduccion">
+            <End Role="receta" EntitySet="receta" />
+            <End Role="produccion" EntitySet="produccion" />
+          </AssociationSet>
+          <AssociationSet Name="medidaproducto" Association="Database1Model.medidaproducto">
+            <End Role="medida" EntitySet="medida" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="formato" Type="Int32" Nullable="false" />
+          <Property Name="lineaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="detalle_receta" Relationship="Database1Model.productodetalle_receta" FromRole="producto" ToRole="detalle_receta" />
+          <NavigationProperty Name="familia" Relationship="Database1Model.familiaproducto" FromRole="producto" ToRole="familia" />
+          <Property Name="familiaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="usuario" Relationship="Database1Model.usuarioproducto" FromRole="producto" ToRole="usuario" />
+          <Property Name="usuarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="compra" Relationship="Database1Model.productocompra" FromRole="producto" ToRole="compra" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <Property Name="precio_venta" Type="String" Nullable="false" />
+          <NavigationProperty Name="medida" Relationship="Database1Model.medidaproducto" FromRole="producto" ToRole="medida" />
+          <Property Name="medidaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="detalle_receta">
+          <Key>
+            <PropertyRef Name="recetaId" />
+            <PropertyRef Name="productoId" />
+          </Key>
+          <Property Name="cantidad" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="receta" Relationship="Database1Model.recetadetalle_receta" FromRole="detalle_receta" ToRole="receta" />
+          <Property Name="recetaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Database1Model.productodetalle_receta" FromRole="detalle_receta" ToRole="producto" />
+          <Property Name="productoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="medida" Relationship="Database1Model.medidadetalle_receta" FromRole="detalle_receta" ToRole="medida" />
+          <Property Name="medidaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="recetadetalle_receta">
+          <End Type="Database1Model.receta" Role="receta" Multiplicity="1" />
+          <End Type="Database1Model.detalle_receta" Role="detalle_receta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="receta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="detalle_receta">
+              <PropertyRef Name="recetaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productodetalle_receta">
+          <End Type="Database1Model.producto" Role="producto" Multiplicity="1" />
+          <End Type="Database1Model.detalle_receta" Role="detalle_receta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="detalle_receta">
+              <PropertyRef Name="productoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="familia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="linea" Relationship="Database1Model.lineafamilia" FromRole="familia" ToRole="linea" />
+          <Property Name="lineaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Database1Model.familiaproducto" FromRole="familia" ToRole="producto" />
+        </EntityType>
+        <Association Name="lineafamilia">
+          <End Type="Database1Model.linea" Role="linea" Multiplicity="1" />
+          <End Type="Database1Model.familia" Role="familia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="linea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="familia">
+              <PropertyRef Name="lineaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="familiaproducto">
+          <End Type="Database1Model.familia" Role="familia" Multiplicity="1" />
+          <End Type="Database1Model.producto" Role="producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="familia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="familiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="clave" Type="String" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Database1Model.usuarioproducto" FromRole="usuario" ToRole="producto" />
+          <NavigationProperty Name="rolusuario" Relationship="Database1Model.rolusuariousuario" FromRole="usuario" ToRole="rolusuario" />
+          <Property Name="rolusuarioId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="usuarioproducto">
+          <End Type="Database1Model.usuario" Role="usuario" Multiplicity="1" />
+          <End Type="Database1Model.producto" Role="producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="usuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="rolusuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rol" Type="String" Nullable="false" />
+          <NavigationProperty Name="usuario" Relationship="Database1Model.rolusuariousuario" FromRole="rolusuario" ToRole="usuario" />
+        </EntityType>
+        <Association Name="rolusuariousuario">
+          <End Type="Database1Model.rolusuario" Role="rolusuario" Multiplicity="1" />
+          <End Type="Database1Model.usuario" Role="usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rolusuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="rolusuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="proveedor">
+          <Key>
+            <PropertyRef Name="rut" />
+          </Key>
+          <Property Name="rut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="compra" Relationship="Database1Model.proveedorcompra" FromRole="proveedor" ToRole="compra" />
+        </EntityType>
+        <EntityType Name="compra">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="precio_neto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="proveedor" Relationship="Database1Model.proveedorcompra" FromRole="compra" ToRole="proveedor" />
+          <Property Name="proveedor_rut" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Database1Model.productocompra" FromRole="compra" ToRole="producto" />
+          <Property Name="productoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="proveedorcompra">
+          <End Type="Database1Model.proveedor" Role="proveedor" Multiplicity="1" />
+          <End Type="Database1Model.compra" Role="compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedor">
+              <PropertyRef Name="rut" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="proveedor_rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="productocompra">
+          <End Type="Database1Model.producto" Role="producto" Multiplicity="1" />
+          <End Type="Database1Model.compra" Role="compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="productoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="produccion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_produccion" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="receta" Relationship="Database1Model.recetaproduccion" FromRole="produccion" ToRole="receta" />
+          <Property Name="recetaId" Type="Int32" Nullable="false" />
+          <Property Name="valor" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="medida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="detalle_receta" Relationship="Database1Model.medidadetalle_receta" FromRole="medida" ToRole="detalle_receta" />
+          <NavigationProperty Name="producto" Relationship="Database1Model.medidaproducto" FromRole="medida" ToRole="producto" />
+        </EntityType>
+        <Association Name="medidadetalle_receta">
+          <End Type="Database1Model.medida" Role="medida" Multiplicity="1" />
+          <End Type="Database1Model.detalle_receta" Role="detalle_receta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="detalle_receta">
+              <PropertyRef Name="medidaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="recetaproduccion">
+          <End Type="Database1Model.receta" Role="receta" Multiplicity="1" />
+          <End Type="Database1Model.produccion" Role="produccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="receta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="produccion">
+              <PropertyRef Name="recetaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="medidaproducto">
+          <End Type="Database1Model.medida" Role="medida" Multiplicity="1" />
+          <End Type="Database1Model.producto" Role="producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="medidaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="PanaderiaEntities">
+    <EntitySetMapping Name="linea">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.linea)">
+        <MappingFragment StoreEntitySet="linea">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receta">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.receta)">
+        <MappingFragment StoreEntitySet="receta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.producto)">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="formato" ColumnName="formato" />
+          <ScalarProperty Name="lineaId" ColumnName="lineaId" />
+          <ScalarProperty Name="familiaId" ColumnName="familiaId" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
+          <ScalarProperty Name="medidaId" ColumnName="medidaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalle_receta">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.detalle_receta)">
+        <MappingFragment StoreEntitySet="detalle_receta">
+          <ScalarProperty Name="recetaId" ColumnName="recetaId" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="medidaId" ColumnName="medidaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="familia">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.familia)">
+        <MappingFragment StoreEntitySet="familia">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="lineaId" ColumnName="lineaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.usuario)">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="rolusuarioId" ColumnName="rolusuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rolusuario">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.rolusuario)">
+        <MappingFragment StoreEntitySet="rolusuario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proveedor">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.proveedor)">
+        <MappingFragment StoreEntitySet="proveedor">
+          <ScalarProperty Name="rut" ColumnName="rut" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="compra">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.compra)">
+        <MappingFragment StoreEntitySet="compra">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio_neto" ColumnName="precio_neto" />
+          <ScalarProperty Name="proveedor_rut" ColumnName="proveedor_rut" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produccion">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.produccion)">
+        <MappingFragment StoreEntitySet="produccion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="fecha_produccion" ColumnName="fecha_produccion" />
+          <ScalarProperty Name="recetaId" ColumnName="recetaId" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medida">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.medida)">
+        <MappingFragment StoreEntitySet="medida">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
