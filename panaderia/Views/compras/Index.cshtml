@@ -1,0 +1,51 @@
+﻿@model IEnumerable<panaderia.Models.compra>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio_neto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proveedor.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.producto.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio_neto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proveedor.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.producto.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

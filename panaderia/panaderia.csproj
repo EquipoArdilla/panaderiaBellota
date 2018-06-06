@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -149,9 +150,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\comprasController.cs" />
+    <Compile Include="Controllers\familiasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\lineasController.cs" />
+    <Compile Include="Controllers\medidasController.cs" />
+    <Compile Include="Controllers\productoesController.cs" />
+    <Compile Include="Controllers\proveedorsController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
+    <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,6 +281,36 @@
     <Content Include="Views\rolusuarios\Details.cshtml" />
     <Content Include="Views\rolusuarios\Edit.cshtml" />
     <Content Include="Views\rolusuarios\Index.cshtml" />
+    <Content Include="Views\usuarios\Create.cshtml" />
+    <Content Include="Views\usuarios\Delete.cshtml" />
+    <Content Include="Views\usuarios\Details.cshtml" />
+    <Content Include="Views\usuarios\Edit.cshtml" />
+    <Content Include="Views\usuarios\Index.cshtml" />
+    <Content Include="Views\proveedors\Create.cshtml" />
+    <Content Include="Views\proveedors\Delete.cshtml" />
+    <Content Include="Views\proveedors\Details.cshtml" />
+    <Content Include="Views\proveedors\Edit.cshtml" />
+    <Content Include="Views\proveedors\Index.cshtml" />
+    <Content Include="Views\compras\Create.cshtml" />
+    <Content Include="Views\compras\Delete.cshtml" />
+    <Content Include="Views\compras\Details.cshtml" />
+    <Content Include="Views\compras\Edit.cshtml" />
+    <Content Include="Views\compras\Index.cshtml" />
+    <Content Include="Views\familias\Create.cshtml" />
+    <Content Include="Views\familias\Delete.cshtml" />
+    <Content Include="Views\familias\Details.cshtml" />
+    <Content Include="Views\familias\Edit.cshtml" />
+    <Content Include="Views\familias\Index.cshtml" />
+    <Content Include="Views\medidas\Create.cshtml" />
+    <Content Include="Views\medidas\Delete.cshtml" />
+    <Content Include="Views\medidas\Details.cshtml" />
+    <Content Include="Views\medidas\Edit.cshtml" />
+    <Content Include="Views\medidas\Index.cshtml" />
+    <Content Include="Views\productoes\Create.cshtml" />
+    <Content Include="Views\productoes\Delete.cshtml" />
+    <Content Include="Views\productoes\Details.cshtml" />
+    <Content Include="Views\productoes\Edit.cshtml" />
+    <Content Include="Views\productoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Ariel\" />

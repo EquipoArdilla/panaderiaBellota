@@ -1,0 +1,50 @@
+﻿@model panaderia.Models.compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio_neto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio_neto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proveedor.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proveedor.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
