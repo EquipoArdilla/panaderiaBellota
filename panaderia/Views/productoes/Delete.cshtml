@@ -1,0 +1,88 @@
+﻿@model panaderia.Models.producto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.formato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.formato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lineaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lineaId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio_venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio_venta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.familia.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.familia.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medida.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medida.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
