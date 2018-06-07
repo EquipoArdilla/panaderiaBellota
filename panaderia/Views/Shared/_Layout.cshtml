@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - Panaderia Ardilla</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -17,19 +17,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Panaderia Ardilla", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Linea", "Index", "Lineas")</li>
+                    <li>@Html.ActionLink("Compras", "Index", "compras")</li>
+                    <li>@Html.ActionLink("Receta", "Index", "Lineas")</li>
                     <li>@Html.ActionLink("Produccion", "Index", "produccions")</li>
                     <li>@Html.ActionLink("Reportes", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Tablas", "Contact", "Lineas")</li>
+                       <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                            Admin <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Medidas", "Index", "medidas")</li>
+                            <li>@Html.ActionLink("Linea", "Index", "lineas")</li>
+                            <li>@Html.ActionLink("Familia", "Index", "familias")</li>
+                            <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
+                            <li>@Html.ActionLink("Proveedores", "Index", "proveedors")</li>
+                            <li>@Html.ActionLink("Usuarios", "Index", "rolusuarios")</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
+
+   
     <div class="container body-content">
         @RenderBody()
         <hr />
