@@ -155,6 +155,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\lineasController.cs" />
     <Compile Include="Controllers\medidasController.cs" />
+    <Compile Include="Controllers\produccionsController.cs" />
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
@@ -311,6 +312,11 @@
     <Content Include="Views\productoes\Details.cshtml" />
     <Content Include="Views\productoes\Edit.cshtml" />
     <Content Include="Views\productoes\Index.cshtml" />
+    <Content Include="Views\produccions\Create.cshtml" />
+    <Content Include="Views\produccions\Delete.cshtml" />
+    <Content Include="Views\produccions\Details.cshtml" />
+    <Content Include="Views\produccions\Edit.cshtml" />
+    <Content Include="Views\produccions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Ariel\" />
