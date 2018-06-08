@@ -272,11 +272,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\lineas\Create.cshtml" />
-    <Content Include="Views\lineas\Delete.cshtml" />
-    <Content Include="Views\lineas\Details.cshtml" />
-    <Content Include="Views\lineas\Edit.cshtml" />
-    <Content Include="Views\lineas\Index.cshtml" />
     <Content Include="Views\rolusuarios\Create.cshtml" />
     <Content Include="Views\rolusuarios\Delete.cshtml" />
     <Content Include="Views\rolusuarios\Details.cshtml" />
@@ -317,6 +312,11 @@
     <Content Include="Views\produccions\Details.cshtml" />
     <Content Include="Views\produccions\Edit.cshtml" />
     <Content Include="Views\produccions\Index.cshtml" />
+    <Content Include="Views\lineas\Create.cshtml" />
+    <Content Include="Views\lineas\Delete.cshtml" />
+    <Content Include="Views\lineas\Details.cshtml" />
+    <Content Include="Views\lineas\Edit.cshtml" />
+    <Content Include="Views\lineas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Ariel\" />
