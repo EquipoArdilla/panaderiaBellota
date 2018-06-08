@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<panaderia.Models.proveedor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Proveedores";
 }
 
-<h2>Index</h2>
+<h2>Gestión de Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn">@Html.ActionLink("Crear", "Create")</button>
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            <label class="col-md-4">Código Proveedor</label>
+            <label class="col-md-4">Nombre Proveedor</label>
         </th>
         <th></th>
     </tr>
@@ -20,12 +21,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.nombre)
+            <label class="col-md-4">@Html.DisplayFor(modelItem => item.rut)</label>
+            <label class="col-md-4">@Html.DisplayFor(modelItem => item.nombre)</label>
+
+
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.rut }) |
-            @Html.ActionLink("Details", "Details", new { id=item.rut }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.rut })
+            @Html.ActionLink("Editar", "Edit", new { id=item.rut }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.rut }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.rut })
         </td>
     </tr>
 }
