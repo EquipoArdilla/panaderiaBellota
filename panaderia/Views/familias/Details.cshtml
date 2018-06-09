@@ -1,17 +1,25 @@
 ﻿@model panaderia.Models.familia
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalle de Familias";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
-    <h4>familia</h4>
+    <h4>Gestión de Familias de Productos</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            <label class="control-label">Codigo Familia</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            <label class="control-label">Nombre Familia</label>
         </dt>
 
         <dd>
@@ -19,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.linea.nombre)
+            <label class="control-label">Nombre Linea</label>
         </dt>
 
         <dd>
@@ -29,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Volver", "Index")
 </p>
