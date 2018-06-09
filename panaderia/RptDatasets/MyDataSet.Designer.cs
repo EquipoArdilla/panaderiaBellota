@@ -281,6 +281,8 @@ namespace panaderia.RptDatasets {
             
             private global::System.Data.DataColumn columnnombre;
             
+            private global::System.Data.DataColumn columnprecio_neto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ViewDataTable() {
@@ -324,6 +326,14 @@ namespace panaderia.RptDatasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn precio_netoColumn {
+                get {
+                    return this.columnprecio_neto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -359,10 +369,11 @@ namespace panaderia.RptDatasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewRow AddViewRow(string nombre) {
+            public ViewRow AddViewRow(string nombre, int precio_neto) {
                 ViewRow rowViewRow = ((ViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        nombre};
+                        nombre,
+                        precio_neto};
                 rowViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowViewRow);
                 return rowViewRow;
@@ -386,6 +397,7 @@ namespace panaderia.RptDatasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnnombre = base.Columns["nombre"];
+                this.columnprecio_neto = base.Columns["precio_neto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -393,8 +405,11 @@ namespace panaderia.RptDatasets {
             private void InitClass() {
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
+                this.columnprecio_neto = new global::System.Data.DataColumn("precio_neto", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecio_neto);
                 this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 2147483647;
+                this.columnprecio_neto.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -543,6 +558,17 @@ namespace panaderia.RptDatasets {
                 }
                 set {
                     this[this.tableView.nombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int precio_neto {
+                get {
+                    return ((int)(this[this.tableView.precio_netoColumn]));
+                }
+                set {
+                    this[this.tableView.precio_netoColumn] = value;
                 }
             }
         }
