@@ -327,6 +327,7 @@
     <Content Include="Views\lineas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="RptReportes\" />
     <Folder Include="Views\Ariel\" />
   </ItemGroup>
   <ItemGroup>
@@ -346,9 +347,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="RptReportes\Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

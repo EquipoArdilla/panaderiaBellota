@@ -24,7 +24,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="precio_neto" msprop:Generator_ColumnVarNameInTable="columnprecio_neto" msprop:Generator_ColumnPropNameInRow="precio_neto" msprop:Generator_ColumnPropNameInTable="precio_netoColumn" msprop:Generator_UserColumnName="precio_neto" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
