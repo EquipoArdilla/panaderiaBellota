@@ -26,14 +26,11 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
-<<<<<<< HEAD
+
     <TargetFrameworkProfile />
-<<<<<<< HEAD
+
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
-=======
->>>>>>> parent of c1c9ab0... cambio de framework
-=======
->>>>>>> parent of 71e1b46... reportes-view
+
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
