@@ -1,14 +1,16 @@
 ﻿@model panaderia.Models.rolusuario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles";
 }
 
-<h2>Details</h2>
+<h2>Gestión Detalle Rol Usuario</h2>
 
 <div>
-    <h4>rolusuario</h4>
+    <h4></h4>
     <hr />
+
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.rol)
@@ -21,6 +23,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    <button type="button" class="btn">@Html.ActionLink("Editar", "Edit", new { id = Model.Id })  </button> |
+    <button type="button" class="btn">@Html.ActionLink("Volver", "Index")</button>
+
+
 </p>

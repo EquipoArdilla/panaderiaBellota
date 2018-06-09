@@ -1,32 +1,40 @@
 ﻿@model panaderia.Models.rolusuario
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Elminar Rol";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3></h3>
 <div>
-    <h4>rolusuario</h4>
+    <h4>Gestión Rol Usuario</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.rol)
+            <label class="control-label">Codigo Rol</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+         <dt>
+            <label class="control-label">Nombre Rol</label>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.rol)
         </dd>
 
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="btn " /> |
+        <button type="button" class="btn">@Html.ActionLink("Volver", "Index")</button>
+    </div>
     }
 </div>
