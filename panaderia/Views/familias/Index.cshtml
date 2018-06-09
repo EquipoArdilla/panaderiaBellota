@@ -1,21 +1,24 @@
 ﻿@model IEnumerable<panaderia.Models.familia>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Familias";
 }
 
-<h2>Index</h2>
+<h2>Gestión de Familias de Productos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn">@Html.ActionLink("Crear", "Create")</button>
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            <label class="">Código Familia</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.linea.nombre)
+            <label class="">Nombre Familia</label>
+        </th>
+        <th>
+            <label class="">Nombre Linea</label>
         </th>
         <th></th>
     </tr>
@@ -23,15 +26,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.linea.nombre)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
         </td>
     </tr>
 }
