@@ -4,37 +4,41 @@
     ViewBag.Title = "Elminar Rol";
 }
 
-<h2>Eliminar</h2>
+<h2>Gestión Eliminar Rol Usuario</h2>
 
 <h3></h3>
 <div>
-    <h4>Gestión Rol Usuario</h4>
+    <h4></h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            <label class="control-label">Codigo Rol</label>
-        </dt>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
 
-        <dd>
+    <!--  Tablas   -->
+    <div class="form-group">
+        <label class="col-md-3" ">Codigo Rol</label>
+        <div class="col-md-offset-2">
             @Html.DisplayFor(model => model.Id)
-        </dd>
-         <dt>
-            <label class="control-label">Nombre Rol</label>
-        </dt>
+        </div>
+    </div>
 
-        <dd>
+
+    <div class="form-group">
+        <label class="col-md-3">Nombre Rol</label>
+        <div class="col-md-offset-2">
             @Html.DisplayFor(model => model.rol)
-        </dd>
+        </div>
+    </div>
 
 
-    </dl>
 
-    @using (Html.BeginForm()) {
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-    <div class="form-actions no-color">
-        <input type="submit" value="Eliminar" class="btn " /> |
-        <button type="button" class="btn">@Html.ActionLink("Volver", "Index")</button>
-    </div>
+        <div class="col-md-offset-3">
+            <input type="submit" value="Eliminar" class="btn-default " /> |
+            <button type="button" class="btn-default">@Html.ActionLink("Volver", "Index")</button>
+        </div>
     }
 </div>

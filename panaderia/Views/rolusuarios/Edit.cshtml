@@ -4,51 +4,53 @@
     ViewBag.Title = "Editar Rol Usuario";
 }
 
-<h2>Editar</h2>
+<h2>Gestión Editar Rol Usuario</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
+
+
     
 <div class="form-horizontal">
-    <h4>Gestión Rol Usuario</h4>
+    <h4></h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id)
 
-
+    <!--  Tablas   -->
     <div class="form-group">
-        <label class="control-label col-md-2">Código Rol</label>
-        <div class="col-md-10">
+        <label class="col-md-3">Código Rol</label>
+        <div class="col-md-offset-2">
             @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
         </div>
     </div>
 
 
-
     <div class="form-group">
-        <label class="control-label col-md-2">Nombre Rol</label>
-        <div class="col-md-10">
+        <label class="col-md-3">Nombre Rol</label>
+        <div class="col-md-offset-2">
             @Html.EditorFor(model => model.rol, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.rol, "", new { @class = "text-danger" })
         </div>
     </div>
 
+    <!--  Botones  Guardar / Volver -->
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Guardar" class="btn" />
+        <div class="col-md-offset-3">
+            <input type="submit" value="Guardar" class="btn-default" />
+            <button type="button" class="btn-default">@Html.ActionLink("Volver", "Index")</button>
+
         </div>
     </div>
+
 </div>
 }
 
-<div>
 
-
-     <button type="button" class="btn">@Html.ActionLink("Volver", "Index")</button>
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

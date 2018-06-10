@@ -7,14 +7,14 @@
 <h2>Gestión Rol Usuario</h2>
 
 <p>
-      <button type="button" class="btn">@Html.ActionLink("Crear", "Create")</button>
+      <button type="button" class="btn-default">@Html.ActionLink("Crear", "Create")</button>
 </p>
 <table class="table">
     <tr>
         <th>
            
-            <label class="col-md-4">Código Rol</label>
-            <label class="col-md-4">Nombre Rol</label>
+            <label class="col-md-3">Código Rol</label>
+            <label class="col-md-3">Nombre Rol</label>
         </th>
         <th></th>
     </tr>
@@ -23,14 +23,14 @@
     <tr>
         <td>
           
-            <label class="col-md-4">@Html.DisplayFor(modelItem => item.Id)</label>
-            <label class="col-md-4">@Html.DisplayFor(modelItem => item.rol)</label>
+            <label class="col-md-3">@Html.DisplayFor(modelItem => item.Id)</label>
+            <label class="col-md-3">@Html.DisplayFor(modelItem => item.rol)</label>
 
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+            <button type="button" class="btn-default">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button> |
+            <button type="button" class="btn-default">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button> |
+            <button type="button" class="btn-default">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
         </td>
     </tr>
 }

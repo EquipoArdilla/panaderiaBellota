@@ -9,23 +9,25 @@
 <div>
     <h4></h4>
     <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
 
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.rol)
-        </dt>
 
-        <dd>
+    <!--  Tablas   -->
+    <div class="form-group">
+        <label class="col-md-3">Nombre Rol</label>
+        <div class="col-md-offset-2">
             @Html.DisplayFor(model => model.rol)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 </div>
 <p>
 
-    <button type="button" class="btn">@Html.ActionLink("Editar", "Edit", new { id = Model.Id })  </button> |
-    <button type="button" class="btn">@Html.ActionLink("Volver", "Index")</button>
+    <div class="col-md-offset-3">
+        <button type="button" class="btn-default">@Html.ActionLink("Editar", "Edit", new { id = Model.Id })  </button> |
+        <button type="button" class="btn-default">@Html.ActionLink("Volver", "Index")</button>
 
+        </div>
 
 </p>

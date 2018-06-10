@@ -6,39 +6,47 @@
 
 <h2>Gestión Detalle de Usuarios</h2>
 
-<div>
+<div class="form-horizontal">
     <h4></h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
 
-        <dd>
+
+
+    <!--  Tablas   -->
+    <div class="form-group">
+        <label class="col-md-3">Nombre Usuario</label>
+        <div class="col-md-offset-2">
             @Html.DisplayFor(model => model.nombre)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.clave)
-        </dt>
 
-        <dd>
+    <div class="form-group">
+        <label class="col-md-3">Clave Usuario</label>
+        <div class="col-md-offset-2">
             @Html.DisplayFor(model => model.clave)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.rolusuario.rol)
-        </dt>
-
-        <dd>
+    <div class="form-group">
+        <label class="col-md-3">Rol Usuario</label>
+        <div class="col-md-offset-2">
             @Html.DisplayFor(model => model.rolusuario.rol)
-        </dd>
+        </div>
+    </div>
 
-    </dl>
 </div>
-<p>
- 
 
-    <button type="button" class="btn">@Html.ActionLink("Editar", "Edit", new { id = Model.Id })  </button> |
-        <button type="button" class="btn">@Html.ActionLink("Volver", "Index")</button>
+<!--  Botones  Editar / Volver -->
+<p>
+    <div class="form-group">
+        <div class="col-md-offset-3">
+            <button type="button" class="btn-default">@Html.ActionLink("Editar", "Edit", new { id = Model.Id })  </button>
+            <button type="button" class="btn-default">@Html.ActionLink("Volver", "Index")</button>
+        </div>
+    </div>
 </p>
+
+
