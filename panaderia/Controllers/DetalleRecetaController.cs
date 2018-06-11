@@ -24,7 +24,7 @@ namespace panaderia.Controllers
             data.medida = db.medida.ToList(); //Obtengo medida para combobox
             data.detalle_receta = recetas; // array receteta
             data.idSeleccionado = id; //mantengo ID
-            return View(data); // muestro data
+            return View(data); // muestro data 
         }
 
         public ActionResult SeleccionaReceta(int id)

@@ -11,4 +11,5 @@ using panaderia.Models;
         public List<receta> receta { get; set; }
         public List<detalle_receta> detalle_receta { get; set; }
         public int? idSeleccionado { get; internal set; }
+
     }
