@@ -1,17 +1,44 @@
 ﻿@model panaderia.Models.compra
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles";
 }
 
-<h2>Details</h2>
+<h2>Detalle</h2>
 
 <div>
-    <h4>compra</h4>
+    <h4>Gestión de Compra</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            <label class="control-label">Codigo Compra</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            <label class="control-label">Producto</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.nombre)
+        </dd>
+
+        <dt>
+            <label class="control-label">Proveedor</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proveedor.nombre)
+        </dd>
+
+
+
+        <dt>
+            <label class="control-label">Cantidas</label>
         </dt>
 
         <dd>
@@ -19,32 +46,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.precio_neto)
+            <label class="control-label">Precio</label>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.precio_neto)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.proveedor.nombre)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.proveedor.nombre)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.producto.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.producto.nombre)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Volver", "Index")
 </p>
