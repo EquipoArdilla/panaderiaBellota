@@ -1,34 +1,19 @@
 ﻿@model panaderia.Models.compra
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Compra";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3></h3>
 <div>
-    <h4>compra</h4>
+    <h4>Gestión Compras</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.precio_neto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.precio_neto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.proveedor.nombre)
+            <label class="control-label">Proveedor</label>
         </dt>
 
         <dd>
@@ -36,21 +21,39 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.producto.nombre)
+            <label class="control-label">Producto</label>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.producto.nombre)
         </dd>
 
+
+        <dt>
+            <label class="control-label">Cantidad</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            <label class="control-label">Precio</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio_neto)
+        </dd>
+
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliinar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
         </div>
     }
 </div>
