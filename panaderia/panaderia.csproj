@@ -175,7 +175,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\comprasController.cs" />
+    <Compile Include="Controllers\CombosSelecciona.cs" />
+    <Compile Include="Controllers\DetalleRecetaController.cs" />
     <Compile Include="Controllers\familiasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\lineasController.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Controllers\produccionsController.cs" />
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
+    <Compile Include="Controllers\RecetasController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Controllers\ViewsController.cs" />
@@ -381,11 +383,16 @@
     <Content Include="Views\Views\Details.cshtml" />
     <Content Include="Views\Views\Edit.cshtml" />
     <Content Include="Views\Views\Index.cshtml" />
+    <Content Include="Views\DetalleReceta\DetalleReceta.cshtml" />
+    <Content Include="Views\DetalleReceta\Eliminar.cshtml" />
+    <Content Include="Views\DetalleReceta\Index.cshtml" />
+    <Content Include="Views\Recetas\Create.cshtml" />
+    <Content Include="Views\Recetas\Delete.cshtml" />
+    <Content Include="Views\Recetas\Details.cshtml" />
+    <Content Include="Views\Recetas\Edit.cshtml" />
+    <Content Include="Views\Recetas\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Ariel\" />
-    <Folder Include="Views\intento\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
