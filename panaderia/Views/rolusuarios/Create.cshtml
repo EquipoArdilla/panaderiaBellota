@@ -1,45 +1,39 @@
 ﻿@model panaderia.Models.rolusuario
 
 @{
-    ViewBag.Title = "Crear Rol Usuario";
+    ViewBag.Title = "Create";
 }
 
-<h2>Gestión Crear Rol Usuario</h2>
+<h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
-
-    <div class="form-group">
-        <h4></h4>
+    
+    <div class="form-horizontal">
+        <h4>rolusuario</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-
-            <div class="form-group">
-                <label class="col-md-3">Nombre Nuevo Rol</label>
-
+            @Html.LabelFor(model => model.rol, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
                 @Html.EditorFor(model => model.rol, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.rol, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
 
-   
-
-
-    <div class="form-group">
-        <div class="col-md-offset-3">
-            <input type="submit" value="Guardar" class="btn-default" />
-            <button type="button" class="btn-default">@Html.ActionLink("Volver", "Index")</button>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-   
 }
 
-
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

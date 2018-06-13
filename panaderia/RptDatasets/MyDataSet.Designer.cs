@@ -279,7 +279,15 @@ namespace panaderia.RptDatasets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ViewDataTable : global::System.Data.TypedTableBase<ViewRow> {
             
-            private global::System.Data.DataColumn columnnombre;
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columncantidad;
+            
+            private global::System.Data.DataColumn columnprecio_neto;
+            
+            private global::System.Data.DataColumn columnproductoId;
+            
+            private global::System.Data.DataColumn columnproveedor_rut;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -316,9 +324,41 @@ namespace panaderia.RptDatasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nombreColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnnombre;
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cantidadColumn {
+                get {
+                    return this.columncantidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn precio_netoColumn {
+                get {
+                    return this.columnprecio_neto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn productoIdColumn {
+                get {
+                    return this.columnproductoId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn proveedor_rutColumn {
+                get {
+                    return this.columnproveedor_rut;
                 }
             }
             
@@ -359,13 +399,24 @@ namespace panaderia.RptDatasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewRow AddViewRow(string nombre) {
+            public ViewRow AddViewRow(int cantidad, int precio_neto, int productoId, int proveedor_rut) {
                 ViewRow rowViewRow = ((ViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        nombre};
+                        null,
+                        cantidad,
+                        precio_neto,
+                        productoId,
+                        proveedor_rut};
                 rowViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowViewRow);
                 return rowViewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ViewRow FindById(int Id) {
+                return ((ViewRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -385,16 +436,38 @@ namespace panaderia.RptDatasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnnombre = base.Columns["nombre"];
+                this.columnId = base.Columns["Id"];
+                this.columncantidad = base.Columns["cantidad"];
+                this.columnprecio_neto = base.Columns["precio_neto"];
+                this.columnproductoId = base.Columns["productoId"];
+                this.columnproveedor_rut = base.Columns["proveedor_rut"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnombre);
-                this.columnnombre.AllowDBNull = false;
-                this.columnnombre.MaxLength = 2147483647;
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidad);
+                this.columnprecio_neto = new global::System.Data.DataColumn("precio_neto", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecio_neto);
+                this.columnproductoId = new global::System.Data.DataColumn("productoId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproductoId);
+                this.columnproveedor_rut = new global::System.Data.DataColumn("proveedor_rut", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproveedor_rut);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columncantidad.AllowDBNull = false;
+                this.columnprecio_neto.AllowDBNull = false;
+                this.columnproductoId.AllowDBNull = false;
+                this.columnproveedor_rut.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -537,12 +610,56 @@ namespace panaderia.RptDatasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nombre {
+            public int Id {
                 get {
-                    return ((string)(this[this.tableView.nombreColumn]));
+                    return ((int)(this[this.tableView.IdColumn]));
                 }
                 set {
-                    this[this.tableView.nombreColumn] = value;
+                    this[this.tableView.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int cantidad {
+                get {
+                    return ((int)(this[this.tableView.cantidadColumn]));
+                }
+                set {
+                    this[this.tableView.cantidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int precio_neto {
+                get {
+                    return ((int)(this[this.tableView.precio_netoColumn]));
+                }
+                set {
+                    this[this.tableView.precio_netoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int productoId {
+                get {
+                    return ((int)(this[this.tableView.productoIdColumn]));
+                }
+                set {
+                    this[this.tableView.productoIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int proveedor_rut {
+                get {
+                    return ((int)(this[this.tableView.proveedor_rutColumn]));
+                }
+                set {
+                    this[this.tableView.proveedor_rutColumn] = value;
                 }
             }
         }

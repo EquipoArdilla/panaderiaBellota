@@ -17,17 +17,19 @@
         <xs:element name="View" msprop:Generator_TableClassName="ViewDataTable" msprop:Generator_TableVarName="tableView" msprop:Generator_TablePropName="View" msprop:Generator_RowDeletingName="ViewRowDeleting" msprop:Generator_RowChangingName="ViewRowChanging" msprop:Generator_RowEvHandlerName="ViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewRowDeleted" msprop:Generator_UserTableName="View" msprop:Generator_RowChangedName="ViewRowChanged" msprop:Generator_RowEvArgName="ViewRowChangeEvent" msprop:Generator_RowClassName="ViewRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" />
+              <xs:element name="precio_neto" msprop:Generator_ColumnVarNameInTable="columnprecio_neto" msprop:Generator_ColumnPropNameInRow="precio_neto" msprop:Generator_ColumnPropNameInTable="precio_netoColumn" msprop:Generator_UserColumnName="precio_neto" type="xs:int" />
+              <xs:element name="productoId" msprop:Generator_ColumnVarNameInTable="columnproductoId" msprop:Generator_ColumnPropNameInRow="productoId" msprop:Generator_ColumnPropNameInTable="productoIdColumn" msprop:Generator_UserColumnName="productoId" type="xs:int" />
+              <xs:element name="proveedor_rut" msprop:Generator_ColumnVarNameInTable="columnproveedor_rut" msprop:Generator_ColumnPropNameInRow="proveedor_rut" msprop:Generator_ColumnPropNameInTable="proveedor_rutColumn" msprop:Generator_UserColumnName="proveedor_rut" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

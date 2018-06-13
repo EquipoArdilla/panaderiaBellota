@@ -11,37 +11,38 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayName("Fecha Produccion:")
+            @Html.DisplayNameFor(model => model.fecha_produccion)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.fecha_produccion)
         </dd>
+
         <dt>
-            @Html.DisplayName("Receta:")
+            @Html.DisplayNameFor(model => model.valor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.receta.nombre)
+            @Html.DisplayFor(model => model.valor)
         </dd>
 
         <dt>
-            @Html.DisplayName("Cantidad:")
+            @Html.DisplayNameFor(model => model.cantidad)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.cantidad)
         </dd>
 
-
         <dt>
-            @Html.DisplayName("Valor:")
+            @Html.DisplayNameFor(model => model.receta.nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.valor)
+            @Html.DisplayFor(model => model.receta.nombre)
         </dd>
-      </dl>
+
+    </dl>
 </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |

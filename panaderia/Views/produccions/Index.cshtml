@@ -12,17 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayName("Fecha Produccion")
-        </th>
-
-        <th>
-            @Html.DisplayName("Receta")
+            @Html.DisplayNameFor(model => model.fecha_produccion)
         </th>
         <th>
-            @Html.DisplayName("Cantidad")
+            @Html.DisplayNameFor(model => model.receta.nombre)
         </th>
         <th>
-            @Html.DisplayName("Valor")
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor)
         </th>
         <th></th>
     </tr>
