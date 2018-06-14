@@ -163,6 +163,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\lineasController.cs" />
     <Compile Include="Controllers\produccionsController.cs" />
+    <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
     <Compile Include="Controllers\RecetasController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
@@ -323,6 +324,11 @@
     <Content Include="Views\Recetas\Details.cshtml" />
     <Content Include="Views\Recetas\Edit.cshtml" />
     <Content Include="Views\Recetas\Index.cshtml" />
+    <Content Include="Views\productoes\Create.cshtml" />
+    <Content Include="Views\productoes\Delete.cshtml" />
+    <Content Include="Views\productoes\Details.cshtml" />
+    <Content Include="Views\productoes\Edit.cshtml" />
+    <Content Include="Views\productoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />

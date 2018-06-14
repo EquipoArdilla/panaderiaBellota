@@ -1,0 +1,73 @@
+﻿@model panaderia.Models.producto
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Gestion Detalles</h2>
+
+<div>
+    <h4>producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="col-md-3">Codigo</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            <label class="col-md-3">Nombre</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            <label class="col-md-3">Formato</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.formato)
+        </dd>
+
+        <dt>
+            <label class="col-md-3">Precio Venta</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio_venta)
+        </dd>
+
+        <dt>
+            <label class="col-md-3">Familia</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.familia.nombre)
+        </dd>
+
+        <dt>
+            <label class="col-md-3">Usuario</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.nombre)
+        </dd>
+
+        <dt>
+            <label class="col-md-3">Nombre </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medida.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
