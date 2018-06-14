@@ -1,0 +1,53 @@
+﻿@model IEnumerable<panaderia.Models.producto>
+
+@{
+    ViewBag.Title = "Producto";
+}
+
+<h2>Producto</h2>
+
+<p>
+    <button type="button" class="btn-default">@Html.ActionLink("Crear", "Create")</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label class="">Codigo Producto</label>
+        </th>
+        <th>
+            <label class="">Nombre Producto</label>           
+        </th>
+       
+        <th>
+            <label class="">Precio Venta</label>
+        </th>
+        <th>
+            <label class="">Familia Nombre</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio_venta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.familia.nombre)
+        </td>
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
