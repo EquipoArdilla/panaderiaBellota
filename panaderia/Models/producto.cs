@@ -23,11 +23,9 @@ namespace panaderia.Models
         public int Id { get; set; }
         public string nombre { get; set; }
         public int formato { get; set; }
-        public int lineaId { get; set; }
         public int familiaId { get; set; }
         public int usuarioId { get; set; }
-        public int stock { get; set; }
-        public string precio_venta { get; set; }
+        public short precio_venta { get; set; }
         public int medidaId { get; set; }
     
         public virtual ICollection<detalle_receta> detalle_receta { get; set; }
