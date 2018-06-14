@@ -36,6 +36,5 @@ namespace panaderia.Models
         public DbSet<compra> compra { get; set; }
         public DbSet<produccion> produccion { get; set; }
         public DbSet<medida> medida { get; set; }
-        public DbSet<View> View { get; set; }
     }
 }

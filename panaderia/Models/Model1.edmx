@@ -101,30 +101,6 @@
           <Property Name="clave" Type="nvarchar(max)" Nullable="false" />
           <Property Name="rolusuarioId" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'C:\USERS\UNO\DOCUMENTS\GITHUB\PANADERIABELLOTA - COPIAMIA\PANADERIA\APP_DATA\DATABASE1.MDF.dbo.View' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="View">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="formato" />
-            <PropertyRef Name="lineaId" />
-            <PropertyRef Name="familiaId" />
-            <PropertyRef Name="usuarioId" />
-            <PropertyRef Name="stock" />
-            <PropertyRef Name="precio_venta" />
-            <PropertyRef Name="medidaId" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="formato" Type="int" Nullable="false" />
-          <Property Name="lineaId" Type="int" Nullable="false" />
-          <Property Name="familiaId" Type="int" Nullable="false" />
-          <Property Name="usuarioId" Type="int" Nullable="false" />
-          <Property Name="stock" Type="int" Nullable="false" />
-          <Property Name="precio_venta" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="medidaId" Type="int" Nullable="false" />
-        </EntityType>
         <Association Name="FK_familiaproducto">
           <End Role="familia" Type="Self.familia" Multiplicity="1" />
           <End Role="producto" Type="Self.producto" Multiplicity="*" />
@@ -269,19 +245,6 @@ advertencia 6002: La tabla o vista 'C:\USERS\UNO\DOCUMENTS\GITHUB\PANADERIABELLO
           <EntitySet Name="receta" EntityType="Self.receta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rolusuario" EntityType="Self.rolusuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="View" EntityType="Self.View" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[View].[Id] AS [Id], 
-[View].[nombre] AS [nombre], 
-[View].[formato] AS [formato], 
-[View].[lineaId] AS [lineaId], 
-[View].[familiaId] AS [familiaId], 
-[View].[usuarioId] AS [usuarioId], 
-[View].[stock] AS [stock], 
-[View].[precio_venta] AS [precio_venta], 
-[View].[medidaId] AS [medidaId]
-FROM [dbo].[View] AS [View]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_familiaproducto" Association="Self.FK_familiaproducto">
             <End Role="familia" EntitySet="familia" />
             <End Role="producto" EntitySet="producto" />
@@ -404,7 +367,6 @@ FROM [dbo].[View] AS [View]</DefiningQuery>
             <End Role="medida" EntitySet="medida" />
             <End Role="producto" EntitySet="producto" />
           </AssociationSet>
-          <EntitySet Name="View" EntityType="Database1Model.View" />
         </EntityContainer>
         <EntityType Name="producto">
           <Key>
@@ -639,28 +601,6 @@ FROM [dbo].[View] AS [View]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="View">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="formato" />
-            <PropertyRef Name="lineaId" />
-            <PropertyRef Name="familiaId" />
-            <PropertyRef Name="usuarioId" />
-            <PropertyRef Name="stock" />
-            <PropertyRef Name="precio_venta" />
-            <PropertyRef Name="medidaId" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="formato" Type="Int32" Nullable="false" />
-          <Property Name="lineaId" Type="Int32" Nullable="false" />
-          <Property Name="familiaId" Type="Int32" Nullable="false" />
-          <Property Name="usuarioId" Type="Int32" Nullable="false" />
-          <Property Name="stock" Type="Int32" Nullable="false" />
-          <Property Name="precio_venta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="medidaId" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -773,21 +713,6 @@ FROM [dbo].[View] AS [View]</DefiningQuery>
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-          <EntitySetMapping Name="View">
-            <EntityTypeMapping TypeName="Database1Model.View">
-              <MappingFragment StoreEntitySet="View">
-              <ScalarProperty Name="medidaId" ColumnName="medidaId" />
-                <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
-                <ScalarProperty Name="stock" ColumnName="stock" />
-                <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-                <ScalarProperty Name="familiaId" ColumnName="familiaId" />
-                <ScalarProperty Name="lineaId" ColumnName="lineaId" />
-                <ScalarProperty Name="formato" ColumnName="formato" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -801,7 +726,7 @@ FROM [dbo].[View] AS [View]</DefiningQuery>
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

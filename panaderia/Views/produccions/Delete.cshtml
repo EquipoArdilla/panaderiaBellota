@@ -12,45 +12,41 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.fecha_produccion)
+            @Html.DisplayName("Fecha Produccion:")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.fecha_produccion)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.valor)
+            @Html.DisplayName("Receta:")
         </dt>
+         <dd>
+            @Html.DisplayFor(model => model.receta.nombre)
+        </dd>
+         <dt>
+             @Html.DisplayName("Cantidad:")
+         </dt>
+         <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+         <dt>
+             @Html.DisplayName("Valor:")
+         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.valor)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.receta.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.receta.nombre)
-        </dd>
-
+                
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index")
         </div>
     }
 </div>
