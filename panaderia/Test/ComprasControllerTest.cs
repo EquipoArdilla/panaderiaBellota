@@ -19,7 +19,7 @@ namespace panaderia.Tests.Controllers
             comprasController controler = new comprasController();
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = controler.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
