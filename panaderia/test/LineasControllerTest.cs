@@ -28,6 +28,42 @@ namespace panaderia.Tests.Controllers
         }
 
 
+        [TestMethod]
+        public void PruebaCreateLineas()
+        {
+
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Create() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+
+            //Assert.AreEqual("Details", result.ViewName);
+
+        }
+
+
+        [TestMethod]
+        public void PruebaEditLineas()
+        {
+
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Edit(10) as ViewResult;
+
+            // Assert
+            //Assert.IsNotNull(result);
+
+            //Assert.AreEqual("Details", result.ViewName);
+            //Assert.AreEqual(1,result.ViewBag.id );
+            Assert.IsNull(result);
+        }
+
+
      
+
     }
 }
