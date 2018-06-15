@@ -16,7 +16,7 @@ namespace panaderia.Tests.Controllers
         public void IndexProductoNoNulo()
         {
             // Arrange
-            ProductoesController controller = new ProductoesController();
+            productoesController controller = new productoesController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
