@@ -47,10 +47,10 @@ namespace panaderia.Controllers
 
         // POST: productoes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre,formato,lineaId,familiaId,usuarioId,stock,precio_venta,medidaId")] producto producto)
+        public ActionResult Create([Bind(Include = "Id,nombre,formato,familiaId,usuarioId,precio_venta,medidaId")] producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -85,10 +85,10 @@ namespace panaderia.Controllers
 
         // POST: productoes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre,formato,lineaId,familiaId,usuarioId,stock,precio_venta,medidaId")] producto producto)
+        public ActionResult Edit([Bind(Include = "Id,nombre,formato,familiaId,usuarioId,precio_venta,medidaId")] producto producto)
         {
             if (ModelState.IsValid)
             {

@@ -162,7 +162,6 @@
     <Compile Include="Controllers\familiasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\lineasController.cs" />
-    <Compile Include="Controllers\medidasController.cs" />
     <Compile Include="Controllers\produccionsController.cs" />
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
@@ -222,6 +221,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test\Recetas.cs" />
+    <Compile Include="test\LineasControllerTest.cs" />
     <Compile Include="test\DetalleRecetaTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -308,16 +308,6 @@
     <Content Include="Views\familias\Details.cshtml" />
     <Content Include="Views\familias\Edit.cshtml" />
     <Content Include="Views\familias\Index.cshtml" />
-    <Content Include="Views\medidas\Create.cshtml" />
-    <Content Include="Views\medidas\Delete.cshtml" />
-    <Content Include="Views\medidas\Details.cshtml" />
-    <Content Include="Views\medidas\Edit.cshtml" />
-    <Content Include="Views\medidas\Index.cshtml" />
-    <Content Include="Views\productoes\Create.cshtml" />
-    <Content Include="Views\productoes\Delete.cshtml" />
-    <Content Include="Views\productoes\Details.cshtml" />
-    <Content Include="Views\productoes\Edit.cshtml" />
-    <Content Include="Views\productoes\Index.cshtml" />
     <Content Include="Views\produccions\Create.cshtml" />
     <Content Include="Views\produccions\Delete.cshtml" />
     <Content Include="Views\produccions\Details.cshtml" />
@@ -336,6 +326,11 @@
     <Content Include="Views\Recetas\Details.cshtml" />
     <Content Include="Views\Recetas\Edit.cshtml" />
     <Content Include="Views\Recetas\Index.cshtml" />
+    <Content Include="Views\productoes\Create.cshtml" />
+    <Content Include="Views\productoes\Delete.cshtml" />
+    <Content Include="Views\productoes\Details.cshtml" />
+    <Content Include="Views\productoes\Edit.cshtml" />
+    <Content Include="Views\productoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />

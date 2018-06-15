@@ -64,11 +64,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
           <Property Name="formato" Type="int" Nullable="false" />
-          <Property Name="lineaId" Type="int" Nullable="false" />
           <Property Name="familiaId" Type="int" Nullable="false" />
           <Property Name="usuarioId" Type="int" Nullable="false" />
-          <Property Name="stock" Type="int" Nullable="false" />
-          <Property Name="precio_venta" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="precio_venta" Type="smallint" Nullable="false" />
           <Property Name="medidaId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="proveedor">
@@ -82,7 +80,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="rolusuario">
@@ -375,15 +373,13 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="formato" Type="Int32" Nullable="false" />
-          <Property Name="lineaId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="detalle_receta" Relationship="Database1Model.productodetalle_receta" FromRole="producto" ToRole="detalle_receta" />
           <NavigationProperty Name="familia" Relationship="Database1Model.familiaproducto" FromRole="producto" ToRole="familia" />
           <Property Name="familiaId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="usuario" Relationship="Database1Model.usuarioproducto" FromRole="producto" ToRole="usuario" />
           <Property Name="usuarioId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="compra" Relationship="Database1Model.productocompra" FromRole="producto" ToRole="compra" />
-          <Property Name="stock" Type="Int32" Nullable="false" />
-          <Property Name="precio_venta" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="precio_venta" Type="Int16" Nullable="false" />
           <NavigationProperty Name="medida" Relationship="Database1Model.medidaproducto" FromRole="producto" ToRole="medida" />
           <Property Name="medidaId" Type="Int32" Nullable="false" />
         </EntityType>
@@ -629,10 +625,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="formato" ColumnName="formato" />
-          <ScalarProperty Name="lineaId" ColumnName="lineaId" />
           <ScalarProperty Name="familiaId" ColumnName="familiaId" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="stock" ColumnName="stock" />
           <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
           <ScalarProperty Name="medidaId" ColumnName="medidaId" />
         </MappingFragment>
