@@ -162,6 +162,7 @@
     <Compile Include="Controllers\familiasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\lineasController.cs" />
+    <Compile Include="Controllers\medidaController.cs" />
     <Compile Include="Controllers\produccionsController.cs" />
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
@@ -332,6 +333,11 @@
     <Content Include="Views\productoes\Details.cshtml" />
     <Content Include="Views\productoes\Edit.cshtml" />
     <Content Include="Views\productoes\Index.cshtml" />
+    <Content Include="Views\medida\Create.cshtml" />
+    <Content Include="Views\medida\Delete.cshtml" />
+    <Content Include="Views\medida\Details.cshtml" />
+    <Content Include="Views\medida\Edit.cshtml" />
+    <Content Include="Views\medida\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />

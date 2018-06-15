@@ -1,0 +1,40 @@
+﻿@model panaderia.Models.medida
+
+@{
+    ViewBag.Title = "Eliminar Medida";
+}
+
+<h2>Gestión de Medidas.</h2>
+
+<h3></h3>
+<div>
+    <h4>Eliminar medida de producto.</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label">Código</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            <label class="control-label">Nombre</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="btn btn-default" /> |
+        <input type="submit" value="Volver" class="btn btn-default" />
+    </div>
+    }
+</div>
