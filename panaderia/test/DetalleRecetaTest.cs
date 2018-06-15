@@ -13,7 +13,7 @@ namespace panaderia.Tests.Controllers
     public class DetalleRecetaTest
     {
         [TestMethod]
-        public void BuscoRecetaParaDetalleNoNulo()
+        public void IndexRecetaDetalleNoNulo()
         {
             // Arrange
             DetalleRecetaController controller = new DetalleRecetaController();
