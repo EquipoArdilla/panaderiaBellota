@@ -12,7 +12,7 @@ namespace panaderia.Tests.Controllers
     public class ProduccionControllerTest
     {
         [TestMethod]
-        public void PruebaIndexProduccion()
+        public void PruebaIndexProduccionNoNulo()
         {
 
             produccionsController controller = new produccionsController();

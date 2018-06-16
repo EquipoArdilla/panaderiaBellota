@@ -12,7 +12,7 @@ namespace panaderia.Tests.Controllers
     public class LineasControllerTest
     {
         [TestMethod]
-        public void PruebaIndexLineas()
+        public void PruebaIndexLineasNoNulo()
         {
 
             lineasController controller = new lineasController();
@@ -29,7 +29,7 @@ namespace panaderia.Tests.Controllers
 
 
         [TestMethod]
-        public void PruebaCreateLineas()
+        public void PruebaCreateLineasNoNulo()
         {
 
             lineasController controller = new lineasController();
@@ -46,7 +46,7 @@ namespace panaderia.Tests.Controllers
 
 
         [TestMethod]
-        public void PruebaEditLineas()
+        public void PruebaEditLineasNulo()
         {
 
             lineasController controller = new lineasController();
