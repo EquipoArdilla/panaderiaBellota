@@ -11,17 +11,20 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class usuario
     {
         public usuario()
         {
             this.producto = new HashSet<producto>();
         }
-    
+        [Required]
         public int Id { get; set; }
+        [Required]
         public string nombre { get; set; }
-        public string clave { get; set; }
+        [Required]
+        public string clave { get; set; }        
         public int rolusuarioId { get; set; }
     
         public virtual ICollection<producto> producto { get; set; }

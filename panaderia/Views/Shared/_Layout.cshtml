@@ -1,23 +1,13 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>@ViewBag.Title</title>
-    <!-- Bootstrap core CSS -->
-    <link href="@Url.Content("~/css/bootstrap.css")" rel="stylesheet">
-    <link href="@Url.Content("~/css/carousel.css")" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Panaderia</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
-
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -34,29 +24,46 @@
                     <li>@Html.ActionLink("Compras", "Index", "compras")</li>
                     <li>@Html.ActionLink("Receta", "Index", "Recetas")</li>
                     <li>@Html.ActionLink("Produccion", "Index", "produccions")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                            Reportes <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Reporte Costeo x Producto", "Index", "")</li>
-                            <li>@Html.ActionLink("Reporte Costeo x Jornada", "Index", "")</li>
-                        </ul>
+
+                @if (User.IsInRole("Bodeguero"))
+                {
+                <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
+                }
+                @if (User.IsInRole("Gerente"))
+                {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                        Reportes <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Reporte Costeo x Producto", "Index", "")</li>
+                        <li>@Html.ActionLink("Reporte Costeo x Jornada", "Index", "")</li>
+                    </ul>
+                </li>
+                }
+                @if (User.IsInRole("Administrador"))
+                {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                        Admin <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Medidas", "Index", "medida")</li>
+                        <li>@Html.ActionLink("Linea", "Index", "lineas")</li>
+                        <li>@Html.ActionLink("Familia", "Index", "familias")</li>
+                        <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
+                        <li>@Html.ActionLink("Proveedores", "Index", "proveedors")</li>
+                        <li>@Html.ActionLink("Usuarios", "Index", "usuarios")</li>
+                        <li>@Html.ActionLink("Rol Usuarios", "Index", "rolusuarios")</li>
+                    </ul>
+                </li>
+                }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("BienVenido " + HttpContext.Current.User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                            Admin <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Medidas", "Index", "medida")</li>
-                            <li>@Html.ActionLink("Linea", "Index", "lineas")</li>
-                            <li>@Html.ActionLink("Familia", "Index", "familias")</li>
-                            <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
-                            <li>@Html.ActionLink("Proveedores", "Index", "proveedors")</li>
-                            <li>@Html.ActionLink("Usuarios", "Index", "usuarios")</li>
-                            <li>@Html.ActionLink("Rol Usuarios", "Index", "rolusuarios")</li>
-                        </ul>
-                    </li>
+                    <li><a href="@Url.Action("SignOut","Home")">Salir</a></li>
                 </ul>
             </div>
         </div>
@@ -75,56 +82,4 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-
-
-
-
-
-<!--
-<body>
-    <div class="navbar-wrapper">
-        <div class="container">
-
-            <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">Project name</a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Nav header</li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li><a href="#">One more separated link</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-   
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="@Url.Content("~/js/bootstrap.js")"></script>
-</body>
--->
 </html>
