@@ -13,7 +13,7 @@ namespace panaderia.Tests.Controllers
     public class RolesTest
     {
         [TestMethod]
-        public void rolusuariosIndexNoNulo()
+        public void IndexRolUsuariosNoNulo()
         {
             // Arrange
             rolusuariosController controller = new rolusuariosController();

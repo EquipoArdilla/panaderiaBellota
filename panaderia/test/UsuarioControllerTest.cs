@@ -13,8 +13,7 @@ namespace panaderia.Tests.Controllers
     public class UsuarioTest
     {
         [TestMethod]
-        public void usuariosIndexNoNulo()
-        {
+        public void IndexUsuariosNoNulo()        {
             // Arrange
             usuariosController controller = new usuariosController();
 
