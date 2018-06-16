@@ -21,6 +21,15 @@ namespace panaderia.Controllers
             return View(produccion.ToList());
         }
 
+        // GET: produccions
+        public ActionResult ReporteKilos()
+        {
+            var produccion = db.produccion.Include(p => p.receta);
+            return View(produccion.ToList());
+        }
+
+
+
         // GET: produccions/Details/5
         public ActionResult Details(int? id)
         {

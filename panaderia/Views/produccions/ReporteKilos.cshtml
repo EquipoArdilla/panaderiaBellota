@@ -1,0 +1,40 @@
+﻿@model IEnumerable<panaderia.Models.produccion>
+
+@{
+    ViewBag.Title = "ReporteKilos";
+}
+
+<h2>Reporte Costo por Kilos</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Receta")
+        </th>
+        <th>
+            @Html.DisplayName("Kilos")
+        </th>
+        <th>
+            @Html.DisplayName("Costo")
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.receta.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor)
+        </td>
+        
+    </tr>
+}
+
+</table>
