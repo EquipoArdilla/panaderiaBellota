@@ -25,7 +25,7 @@ namespace panaderia.Models
         public int cantidad { get; set; }
         [Required]
         public int valor { get; set; }
-        [Required]
+        
         public virtual receta receta { get; set; }
     }
 }
