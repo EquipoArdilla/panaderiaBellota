@@ -11,6 +11,7 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class familia
     {
@@ -18,12 +19,15 @@ namespace panaderia.Models
         {
             this.producto = new HashSet<producto>();
         }
-    
+        [Required]
         public int Id { get; set; }
+        [Required]
         public string nombre { get; set; }
+        [Required]
         public int lineaId { get; set; }
-    
+        [Required]
         public virtual linea linea { get; set; }
+        [Required]
         public virtual ICollection<producto> producto { get; set; }
     }
 }

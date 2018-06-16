@@ -11,8 +11,7 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class medida
     {
         public medida()
@@ -20,10 +19,10 @@ namespace panaderia.Models
             this.detalle_receta = new HashSet<detalle_receta>();
             this.producto = new HashSet<producto>();
         }
-        [Required]
+    
         public int Id { get; set; }
-        [Required]
         public string nombre { get; set; }
+    
         public virtual ICollection<detalle_receta> detalle_receta { get; set; }
         public virtual ICollection<producto> producto { get; set; }
     }

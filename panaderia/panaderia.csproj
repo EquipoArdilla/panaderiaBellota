@@ -222,10 +222,16 @@
     </Compile>
     <Compile Include="MyRoleProvider\SiteRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test\ComprasControllerTest.cs" />
+    <Compile Include="test\FamiliasControllerTest.cs" />
+    <Compile Include="test\RolUsuarioTest.cs" />
+    <Compile Include="test\MedidasTest.cs" />
+    <Compile Include="test\ProduccionsControllerTest.cs" />
+    <Compile Include="test\ProductoesControllertest.cs" />
     <Compile Include="test\ProduccionControllerTest.cs" />
-    <Compile Include="test\Recetas.cs" />
+    <Compile Include="test\RecetasControllerTest.cs" />
     <Compile Include="test\LineasControllerTest.cs" />
-    <Compile Include="test\DetalleRecetaTest.cs" />
+    <Compile Include="test\DetalleRecetaControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database1.mdf" />
