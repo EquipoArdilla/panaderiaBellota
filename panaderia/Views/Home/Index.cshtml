@@ -2,15 +2,16 @@
     ViewBag.Title = "Home Page";
 }
 <header>
-    <h1><span></span></h1>
+   
     <div class="jumbotron">
+        <h3>Bienvenido @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h3>
         <a class="bt-menu"><div class="colapsar"><i class="fa fa-bars"></i></div><img src="~/Img/ardilla-meme-panadero.jpg"></a>
         <div class="jumbotron">
             @if (User.Identity.IsAuthenticated)
-            {
-                <h1>Bienvenido @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h1>
-                <a href="@Url.Action("SignOut","Home")">Cerrar sesión</a>
-            }
+        {
+
+            <a href="@Url.Action("SignOut","Home")">Cerrar sesión</a>
+    }
         </div>
     </div>
 </header>
