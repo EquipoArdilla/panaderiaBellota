@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/13/2018 23:22:13
--- Generated from EDMX file: C:\Users\Sebastian\Documents\GitHub\panaderiaBellota2\panaderia\Models\Model1.edmx
+-- Date Created: 06/15/2018 23:40:42
+-- Generated from EDMX file: D:\mis documentos\GitHub\panaderiaBellota\panaderia\Models\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,52 +17,46 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_recetadetalle_receta]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[detalle_receta] DROP CONSTRAINT [FK_recetadetalle_receta];
-GO
-IF OBJECT_ID(N'[dbo].[FK_productodetalle_receta]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[detalle_receta] DROP CONSTRAINT [FK_productodetalle_receta];
+IF OBJECT_ID(N'[dbo].[FK_familiaproducto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[producto] DROP CONSTRAINT [FK_familiaproducto];
 GO
 IF OBJECT_ID(N'[dbo].[FK_lineafamilia]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[familia] DROP CONSTRAINT [FK_lineafamilia];
 GO
-IF OBJECT_ID(N'[dbo].[FK_familiaproducto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[producto] DROP CONSTRAINT [FK_familiaproducto];
+IF OBJECT_ID(N'[dbo].[FK_medidadetalle_receta]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[detalle_receta] DROP CONSTRAINT [FK_medidadetalle_receta];
 GO
-IF OBJECT_ID(N'[dbo].[FK_usuarioproducto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[producto] DROP CONSTRAINT [FK_usuarioproducto];
-GO
-IF OBJECT_ID(N'[dbo].[FK_rolusuariousuario]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[usuario] DROP CONSTRAINT [FK_rolusuariousuario];
-GO
-IF OBJECT_ID(N'[dbo].[FK_proveedorcompra]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[compra] DROP CONSTRAINT [FK_proveedorcompra];
+IF OBJECT_ID(N'[dbo].[FK_medidaproducto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[producto] DROP CONSTRAINT [FK_medidaproducto];
 GO
 IF OBJECT_ID(N'[dbo].[FK_productocompra]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[compra] DROP CONSTRAINT [FK_productocompra];
 GO
-IF OBJECT_ID(N'[dbo].[FK_medidadetalle_receta]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[detalle_receta] DROP CONSTRAINT [FK_medidadetalle_receta];
+IF OBJECT_ID(N'[dbo].[FK_productodetalle_receta]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[detalle_receta] DROP CONSTRAINT [FK_productodetalle_receta];
+GO
+IF OBJECT_ID(N'[dbo].[FK_proveedorcompra]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[compra] DROP CONSTRAINT [FK_proveedorcompra];
+GO
+IF OBJECT_ID(N'[dbo].[FK_recetadetalle_receta]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[detalle_receta] DROP CONSTRAINT [FK_recetadetalle_receta];
 GO
 IF OBJECT_ID(N'[dbo].[FK_recetaproduccion]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[produccion] DROP CONSTRAINT [FK_recetaproduccion];
 GO
-IF OBJECT_ID(N'[dbo].[FK_medidaproducto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[producto] DROP CONSTRAINT [FK_medidaproducto];
+IF OBJECT_ID(N'[dbo].[FK_rolusuariousuario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[usuario] DROP CONSTRAINT [FK_rolusuariousuario];
+GO
+IF OBJECT_ID(N'[dbo].[FK_usuarioproducto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[producto] DROP CONSTRAINT [FK_usuarioproducto];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[linea]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[linea];
-GO
-IF OBJECT_ID(N'[dbo].[receta]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[receta];
-GO
-IF OBJECT_ID(N'[dbo].[producto]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[producto];
+IF OBJECT_ID(N'[dbo].[compra]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[compra];
 GO
 IF OBJECT_ID(N'[dbo].[detalle_receta]', 'U') IS NOT NULL
     DROP TABLE [dbo].[detalle_receta];
@@ -70,23 +64,29 @@ GO
 IF OBJECT_ID(N'[dbo].[familia]', 'U') IS NOT NULL
     DROP TABLE [dbo].[familia];
 GO
-IF OBJECT_ID(N'[dbo].[usuario]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[usuario];
+IF OBJECT_ID(N'[dbo].[linea]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[linea];
 GO
-IF OBJECT_ID(N'[dbo].[rolusuario]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[rolusuario];
-GO
-IF OBJECT_ID(N'[dbo].[proveedor]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[proveedor];
-GO
-IF OBJECT_ID(N'[dbo].[compra]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[compra];
+IF OBJECT_ID(N'[dbo].[medida]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[medida];
 GO
 IF OBJECT_ID(N'[dbo].[produccion]', 'U') IS NOT NULL
     DROP TABLE [dbo].[produccion];
 GO
-IF OBJECT_ID(N'[dbo].[medida]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[medida];
+IF OBJECT_ID(N'[dbo].[producto]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[producto];
+GO
+IF OBJECT_ID(N'[dbo].[proveedor]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[proveedor];
+GO
+IF OBJECT_ID(N'[dbo].[receta]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[receta];
+GO
+IF OBJECT_ID(N'[dbo].[rolusuario]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[rolusuario];
+GO
+IF OBJECT_ID(N'[dbo].[usuario]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[usuario];
 GO
 
 -- --------------------------------------------------
