@@ -14,13 +14,19 @@ namespace panaderia.Models
     
     public partial class compra
     {
+        [Required]
         public int Id { get; set; }
+        [Required]
         public int cantidad { get; set; }
+        [Required]
         public int precio_neto { get; set; }
+        [Required]
         public int proveedor_rut { get; set; }
+        [Required]
         public int productoId { get; set; }
-    
+        [Required]
         public virtual proveedor proveedor { get; set; }
+        [Required]
         public virtual producto producto { get; set; }
     }
 }
