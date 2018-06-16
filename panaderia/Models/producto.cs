@@ -11,7 +11,10 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public partial class producto
     {
         public producto()
@@ -19,19 +22,29 @@ namespace panaderia.Models
             this.detalle_receta = new HashSet<detalle_receta>();
             this.compra = new HashSet<compra>();
         }
-    
+        [Required]
         public int Id { get; set; }
+        [Required]
         public string nombre { get; set; }
+        [Required]
         public int formato { get; set; }
+        [Required]
         public int familiaId { get; set; }
+        [Required]
         public int usuarioId { get; set; }
+        [Required]
         public short precio_venta { get; set; }
+        [Required]
         public int medidaId { get; set; }
-    
+        [Required]
         public virtual ICollection<detalle_receta> detalle_receta { get; set; }
+        [Required]
         public virtual familia familia { get; set; }
+        [Required]
         public virtual usuario usuario { get; set; }
+        [Required]
         public virtual ICollection<compra> compra { get; set; }
+        [Required]
         public virtual medida medida { get; set; }
     }
 }
