@@ -3,58 +3,59 @@
 @{
     ViewBag.Title = "Compras";
 }
+<div class="jumbotron">
+    <h2>Gestión de Compras</h2>
 
-<h2>Gestión de Compras</h2>
-
-<p>
-    <button type="button" class="btn">@Html.ActionLink("Crear", "Create")</button>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            <label class="">Código Producto</label>
-        </th>
-        <th>
-            <label class="">Nombre Producto</label>
-        </th>
-        <th>
-            <label class="">Cantidad Producto</label>
-        </th>
-        <th>
-            <label class="">Precio Producto</label>
-        </th>
-        <th>
-            <label class="">Proveedor</label>
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <p>
+        <button type="button" class="btn">@Html.ActionLink("Crear", "Create")</button>
+    </p>
+    <table class="table">
         <tr>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.productoId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.producto.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cantidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precio_neto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.proveedor.nombre)
-            </td>
-
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
+            <th>
+                <label class="">Código Producto</label>
+            </th>
+            <th>
+                <label class="">Nombre Producto</label>
+            </th>
+            <th>
+                <label class="">Cantidad Producto</label>
+            </th>
+            <th>
+                <label class="">Precio Producto</label>
+            </th>
+            <th>
+                <label class="">Proveedor</label>
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.productoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.producto.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio_neto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.proveedor.nombre)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
