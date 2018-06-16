@@ -10,16 +10,16 @@ using panaderia.Controllers;
 namespace panaderia.Tests.Controllers
 {
     [TestClass]
-    public class HomeControlerTest
+    public class ReporteControllerTEst
     {
         [TestMethod]
-        public void PruebaLoginNoNulo()
+        public void PruebaReporteIndexNoNulo()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            ReporteProduccionController controller = new ReporteProduccionController();
 
             // Act
-            ViewResult result = controller.Login() as ViewResult;
+            ViewResult result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
