@@ -224,6 +224,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test\ComprasControllerTest.cs" />
     <Compile Include="test\FamiliasControllerTest.cs" />
+    <Compile Include="test\HomeControllerTest.cs" />
     <Compile Include="test\RolUsuarioTest.cs" />
     <Compile Include="test\MedidasTest.cs" />
     <Compile Include="test\ProduccionsControllerTest.cs" />
@@ -349,6 +350,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />
+    <Folder Include="Views\Reporte\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
