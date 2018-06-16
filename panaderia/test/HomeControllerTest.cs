@@ -13,7 +13,7 @@ namespace panaderia.Tests.Controllers
     public class HomeControlerTest
     {
         [TestMethod]
-        public void PruebaLoginNoNulo()
+        public void LoginNoNulo()
         {
             // Arrange
             HomeController controller = new HomeController();
