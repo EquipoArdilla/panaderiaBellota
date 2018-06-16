@@ -24,10 +24,12 @@ namespace panaderia.Models
         [Required]
         public string nombre { get; set; }
         [Required]
-        public string clave { get; set; }        
+        public string clave { get; set; }
+       
         public int rolusuarioId { get; set; }
-    
+      
         public virtual ICollection<producto> producto { get; set; }
+       
         public virtual rolusuario rolusuario { get; set; }
     }
 }
