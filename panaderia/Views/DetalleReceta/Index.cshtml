@@ -12,8 +12,8 @@
 {
        <input value="@Model.idSeleccionado" name="txtReceta" id="txtReceta" type="hidden"  />
         <div class="form-group">
-            <label>Producto</label>
-            <select id="selectProducto" name="selectProducto">
+            <label class="control-label col-md-2">Producto</label>
+            <select id="selectProducto" name="selectProducto" class="form-control">
                 @foreach (var r in Model.producto)
                 {
                     <option value="@r.Id">@r.nombre</option>
@@ -21,8 +21,8 @@
             </select>
          </div>
         <div class="form-group">
-            <label>Medida</label>
-            <select id="selectMedida" name="selectMedida">
+            <label class="control-label col-md-2">Medida</label>
+            <select id="selectMedida" name="selectMedida" class="form-control">
                 @foreach (var r in Model.medida)
                 {
                     <option value="@r.Id">@r.nombre</option>
@@ -30,11 +30,11 @@
             </select>
         </div>
             <div class="form-group">
-                <label>Cantidad</label>
-                <input name="txtCantidad" id="txtCantidad" />
+                <label class="control-label col-md-2">Cantidad</label>
+                <input name="txtCantidad" type="number" class="form-control" required id="txtCantidad" />
             </div>
             <div class="form-group">
-                <button type="submit">Agregar</button>
+                <button type="submit"  class="btn btn-default">Agregar</button>
             </div>
             }
 
