@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Panaderia Ardilla</title>
+    <title>@ViewBag.Title - Panaderia</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -24,35 +24,52 @@
                     <li>@Html.ActionLink("Compras", "Index", "compras")</li>
                     <li>@Html.ActionLink("Receta", "Index", "Recetas")</li>
                     <li>@Html.ActionLink("Produccion", "Index", "produccions")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                            Reportes <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Reporte Costeo x Producto", "Index", "")</li>
-                            <li>@Html.ActionLink("Reporte Costeo x Jornada", "Index", "")</li>
-                        </ul>
+
+                @if (User.IsInRole("Bodeguero"))
+                {
+                <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
+                }
+                @if (User.IsInRole("Gerente"))
+                {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                        Reportes <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Reporte Costeo x Producto", "Index", "")</li>
+                        <li>@Html.ActionLink("Reporte Costeo x Jornada", "Index", "")</li>
+                    </ul>
+                </li>
+                }
+                @if (User.IsInRole("Administrador"))
+                {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                        Admin <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Medidas", "Index", "medida")</li>
+                        <li>@Html.ActionLink("Linea", "Index", "lineas")</li>
+                        <li>@Html.ActionLink("Familia", "Index", "familias")</li>
+                        <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
+                        <li>@Html.ActionLink("Proveedores", "Index", "proveedors")</li>
+                        <li>@Html.ActionLink("Usuarios", "Index", "usuarios")</li>
+                        <li>@Html.ActionLink("Rol Usuarios", "Index", "rolusuarios")</li>
+                    </ul>
+                </li>
+                }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("BienVenido " + HttpContext.Current.User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                            Admin <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Medidas", "Index", "medida")</li>
-                            <li>@Html.ActionLink("Linea", "Index", "lineas")</li>
-                            <li>@Html.ActionLink("Familia", "Index", "familias")</li>
-                            <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
-                            <li>@Html.ActionLink("Proveedores", "Index", "proveedors")</li>
-                            <li>@Html.ActionLink("Usuarios", "Index", "usuarios")</li>
-                            <li>@Html.ActionLink("Rol Usuarios", "Index", "rolusuarios")</li>
-                        </ul>
-                    </li>
+                    <li><a href="@Url.Action("SignOut","Home")">Salir</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-   
+
     <div class="container body-content">
         @RenderBody()
         <hr />

@@ -1,0 +1,66 @@
+﻿@model panaderia.Models.usuario
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/estilos.css" rel="stylesheet" />
+<script src="~/scripts/jquery-1.10.2.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Home", new { returnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="container">
+        
+        <div class="form-login">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title text-center text-primary">SISTEMA COSTEO DE PAN</div>
+                </div>
+
+                <div style="padding-top:30px" class="panel-body">
+                    <div style="display:none" id="result" class="alert alert-danger col-sm-12">
+
+                    </div>
+
+
+
+
+                    <div style="margin-bottom: 25px" class="input-group">
+
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        @Html.EditorFor(model => model.nombre,  new { htmlAttributes = new { @class = "form-control input-lg ", placeholder = "Usuario", autofocus = true, @required = true } })
+                        @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        @Html.EditorFor(model => model.clave, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Password", @required = true, @type ="password" } })
+                        @Html.ValidationMessageFor(model => model.clave, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div style="margin-top:10px" class="form-group text-center">
+                        <div class="col-sm-12 controls">
+                            <input type="submit" value="INGRESAR" class="btn-block btn primary btn-lg" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

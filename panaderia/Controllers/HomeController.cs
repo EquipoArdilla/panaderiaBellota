@@ -3,34 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using panaderia.Models;
 
 namespace panaderia.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize(Roles= "Administrador, Gerente, Bodeguero, Usuario")]        
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult About()
+        
+        public ActionResult Login()
         {
-            ViewBag.Message = "Your application description page.";
-            linea ln = new linea();
-            ln.nombre = "Panaderia";
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Login(usuario model, string returnUrl)
+        {
             PanaderiaEntities db = new PanaderiaEntities();
-            db.linea.Add(ln);
-            db.SaveChanges();
-
-            return View();
+            var dataItem = db.usuario.Where(x => x.nombre == model.nombre && x.clave == model.clave).First();
+            if (dataItem != null)
+            {
+                FormsAuthentication.SetAuthCookie(dataItem.nombre, false);
+                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid user/pass");
+                return View();
+            }
         }
 
-        public ActionResult Contact()
+        [Authorize]
+        public ActionResult SignOut()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Home");
         }
+
     }
 }
