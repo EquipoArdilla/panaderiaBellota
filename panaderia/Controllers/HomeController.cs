@@ -51,6 +51,7 @@ namespace panaderia.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
             return RedirectToAction("Login", "Home");
         }
 

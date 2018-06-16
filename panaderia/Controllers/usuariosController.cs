@@ -10,6 +10,7 @@ using panaderia.Models;
 
 namespace panaderia.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class usuariosController : Controller
     {
         private PanaderiaEntities db = new PanaderiaEntities();
