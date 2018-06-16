@@ -23,11 +23,11 @@ namespace panaderia.Models
         public int Id { get; set; }
         [Required]
         public string nombre { get; set; }
-        [Required]
+        
         public int lineaId { get; set; }
-        [Required]
+        
         public virtual linea linea { get; set; }
-        [Required]
+       
         public virtual ICollection<producto> producto { get; set; }
     }
 }

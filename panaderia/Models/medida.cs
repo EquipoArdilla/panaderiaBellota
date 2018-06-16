@@ -11,7 +11,8 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class medida
     {
         public medida()
@@ -21,6 +22,7 @@ namespace panaderia.Models
         }
     
         public int Id { get; set; }
+        [Required]
         public string nombre { get; set; }
     
         public virtual ICollection<detalle_receta> detalle_receta { get; set; }
