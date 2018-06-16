@@ -37,8 +37,15 @@
         @Html.AntiForgeryToken()
 
         <div class="col-md-offset-3">
-            <input type="submit" value="Eliminar" class="btn btn-default " /> |
-            <button type="button" class="btn btn-default">@Html.ActionLink("Volver", "Index")</button>
+            <input type="submit" value="Eliminar" class="btn btn-default " /> 
+            
         </div>
     }
+
+    <div>
+   
+       @Html.ActionLink("Volver", "Index")
+    </div>
+
+
 </div>
