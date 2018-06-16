@@ -9,7 +9,7 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <h1>Bienvenido @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h1>
-                <a href="@Url.Action("SignOut","Home")">Gestión</a>
+                <a href="@Url.Action("SignOut","Home")">Cerrar sesión</a>
             }
         </div>
     </div>
