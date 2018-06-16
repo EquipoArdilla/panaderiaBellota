@@ -75,7 +75,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        @Html.ActionLink("BienVenido " + HttpContext.Current.User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        <a>Bienvenido</a>
                     </li>
                     <li><a href="@Url.Action("SignOut","Home")">Salir</a></li>
                 </ul>
