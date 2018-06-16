@@ -16,7 +16,7 @@ namespace panaderia.Tests.Controllers
         public void IndexMedidaNoNulo()
         {
             // Arrange
-            MedidaController controller = new MedidaController();
+            medidaController controller = new medidaController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
