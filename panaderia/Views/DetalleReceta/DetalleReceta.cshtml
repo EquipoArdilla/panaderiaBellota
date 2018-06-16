@@ -11,7 +11,7 @@
         @using (Html.BeginForm("AgregaReceta", "DetalleReceta", FormMethod.Post))
         {
             <div class="form-group">
-                <label>Receta</label>
+                <label class="control-label col-md-2" >Receta</label>
                 <input name="SeleccionaReceta" id="SeleccionaReceta" value="" />
             </div>
             <div class="form-group">
@@ -24,7 +24,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Producto</label>
+                <label class="control-label col-md-2">Producto</label>
                 <select id="selectProducto" name="selectProducto">
                     @foreach (var r in Model.producto)
                 {
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Cantidad</label>
+                <label class="control-label col-md-2">Cantidad</label>
                 <input name="txtCantidad" id="txtCantidad" />
             </div>
             <div class="form-group">
