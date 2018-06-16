@@ -35,16 +35,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Compras", "Index", "compras")</li>
-                    <li>@Html.ActionLink("Receta", "Index", "Recetas")</li>
-                    <li>@Html.ActionLink("Produccion", "Index", "produccions")</li>
+                   
 
-                @if (User.IsInRole("Bodeguero"))
-                {
+                    @if (User.IsInRole("Bodeguero"))
+    {
                 <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
-                }
-                @if (User.IsInRole("Gerente"))
-                {
+}
+                    @if (User.IsInRole("Gerente"))
+    {
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
                         Reportes <span class="caret"></span>
@@ -54,12 +52,18 @@
                         <li>@Html.ActionLink("Reporte Costeo x Jornada", "Index", "")</li>
                     </ul>
                 </li>
-                }
-                @if (User.IsInRole("Administrador"))
-                {
+}
+                    @if (User.IsInRole("Administrador"))
+
+
+    {
+                <li>@Html.ActionLink("Compras", "Index", "compras")</li>
+                <li>@Html.ActionLink("Receta", "Index", "Recetas")</li>
+                <li>@Html.ActionLink("Produccion", "Index", "produccions")</li>
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                        Admin <span class="caret"></span>
+                        Maestros <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>@Html.ActionLink("Medidas", "Index", "medida")</li>
@@ -67,11 +71,20 @@
                         <li>@Html.ActionLink("Familia", "Index", "familias")</li>
                         <li>@Html.ActionLink("Producto", "Index", "productoes")</li>
                         <li>@Html.ActionLink("Proveedores", "Index", "proveedors")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                        Seguridad <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
                         <li>@Html.ActionLink("Usuarios", "Index", "usuarios")</li>
                         <li>@Html.ActionLink("Rol Usuarios", "Index", "rolusuarios")</li>
                     </ul>
                 </li>
-                }
+
+
+}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
