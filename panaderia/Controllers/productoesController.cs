@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using panaderia.Models;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace panaderia.Controllers
 {
