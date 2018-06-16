@@ -223,6 +223,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test\ComprasControllerTest.cs" />
     <Compile Include="test\FamiliasControllerTest.cs" />
+    <Compile Include="test\RolUsuarioTest.cs" />
     <Compile Include="test\MedidasTest.cs" />
     <Compile Include="test\ProduccionsControllerTest.cs" />
     <Compile Include="test\ProductoesControllertest.cs" />
