@@ -167,6 +167,7 @@
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
     <Compile Include="Controllers\RecetasController.cs" />
+    <Compile Include="Controllers\ReporteProduccionController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -349,6 +350,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\produccions\ReporteKilos.cshtml" />
+    <Content Include="Views\ReporteProduccion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />
