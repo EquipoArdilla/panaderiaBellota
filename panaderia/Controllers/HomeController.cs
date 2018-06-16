@@ -10,7 +10,7 @@ namespace panaderia.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize(Roles= "Administrador, Gerente, Bodeguero, Usuario")]        
+        [Authorize(Roles= "Administrador, Gerente, Bodeguero")]        
         public ActionResult Index()
         {
             return View();
