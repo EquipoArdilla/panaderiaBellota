@@ -10,10 +10,11 @@ using panaderia.Models;
 
 namespace panaderia.Controllers
 {
+    [Authorize]
     public class comprasController : Controller
     {
         private PanaderiaEntities db = new PanaderiaEntities();
-
+       
         // GET: compras
         public ActionResult Index()
         {

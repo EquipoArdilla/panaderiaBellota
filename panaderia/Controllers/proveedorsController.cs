@@ -10,6 +10,7 @@ using panaderia.Models;
 
 namespace panaderia.Controllers
 {
+    [Authorize]
     public class proveedorsController : Controller
     {
         private PanaderiaEntities db = new PanaderiaEntities();

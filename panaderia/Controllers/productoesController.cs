@@ -12,6 +12,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace panaderia.Controllers
 {
+    [Authorize]
     public class productoesController : Controller
     {
         private PanaderiaEntities db = new PanaderiaEntities();
