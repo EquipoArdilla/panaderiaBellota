@@ -11,8 +11,7 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class linea
     {
         public linea()
@@ -21,7 +20,6 @@ namespace panaderia.Models
         }
     
         public int Id { get; set; }
-        [Required]
         public string nombre { get; set; }
     
         public virtual ICollection<familia> familia { get; set; }

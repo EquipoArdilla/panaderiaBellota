@@ -11,8 +11,7 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class proveedor
     {
         public proveedor()
@@ -21,7 +20,6 @@ namespace panaderia.Models
         }
     
         public int rut { get; set; }
-        [Required]
         public string nombre { get; set; }
     
         public virtual ICollection<compra> compra { get; set; }

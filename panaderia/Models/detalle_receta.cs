@@ -18,6 +18,7 @@ namespace panaderia.Models
         public int recetaId { get; set; }
         public int productoId { get; set; }
         public int medidaId { get; set; }
+        public bool estado { get; set; }
     
         public virtual receta receta { get; set; }
         public virtual producto producto { get; set; }
