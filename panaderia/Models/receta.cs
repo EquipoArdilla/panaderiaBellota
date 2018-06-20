@@ -22,6 +22,9 @@ namespace panaderia.Models
     
         public int Id { get; set; }
         public string nombre { get; set; }
+        public short costo_receta { get; set; }
+        public bool estado { get; set; }
+        public short valor_venta { get; set; }
     
         public virtual ICollection<detalle_receta> detalle_receta { get; set; }
         public virtual ICollection<produccion> produccion { get; set; }

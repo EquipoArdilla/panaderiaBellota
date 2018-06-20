@@ -11,21 +11,19 @@ namespace panaderia.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class produccion
     {
-      
         public int Id { get; set; }
-        [Required]
         public System.DateTime fecha_produccion { get; set; }
-        [Required]
         public int recetaId { get; set; }
-        [Required]
-        public int cantidad { get; set; }
-        [Required]
-        public int valor { get; set; }
-        
+        public int costo_produccion { get; set; }
+        public decimal cantidad { get; set; }
+        public short valor_total_venta { get; set; }
+        public short rentabilidad_produccion { get; set; }
+        public short costo_receta_kilo { get; set; }
+        public short valor_venta_kilo { get; set; }
+    
         public virtual receta receta { get; set; }
     }
 }

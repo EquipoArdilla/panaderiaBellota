@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="Database1Model.compra" Width="1.5" PointX="6.25" PointY="3" />
         <AssociationConnector Association="Database1Model.proveedorcompra" />
         <AssociationConnector Association="Database1Model.productocompra" />
-        <EntityTypeShape EntityType="Database1Model.produccion" Width="1.5" PointX="11.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.produccion" Width="2.25" PointX="10.5" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.medida" Width="1.5" PointX="6.25" PointY="0.875" />
         <AssociationConnector Association="Database1Model.medidadetalle_receta" />
         <AssociationConnector Association="Database1Model.recetaproduccion" />
