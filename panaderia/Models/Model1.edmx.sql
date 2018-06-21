@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/20/2018 00:59:59
+-- Date Created: 06/20/2018 23:26:14
 -- Generated from EDMX file: C:\Users\Sebastian\Documents\GitHub\panaderiaBellota2\panaderia\Models\Model1.edmx
 -- --------------------------------------------------
 
@@ -104,9 +104,9 @@ GO
 CREATE TABLE [dbo].[receta] (
     [Id] int  NOT NULL,
     [nombre] nvarchar(max)  NOT NULL,
-    [costo_receta] smallint  NOT NULL,
+    [costo_receta] bigint  NOT NULL,
     [estado] bit  NOT NULL,
-    [valor_venta] smallint  NOT NULL
+    [valor_venta] bigint  NOT NULL
 );
 GO
 
@@ -118,7 +118,7 @@ CREATE TABLE [dbo].[producto] (
     [familiaId] int  NOT NULL,
     [usuarioId] int  NOT NULL,
     [medidaId] int  NOT NULL,
-    [precio] smallint  NOT NULL
+    [precio] bigint  NOT NULL
 );
 GO
 
@@ -167,7 +167,7 @@ GO
 CREATE TABLE [dbo].[compra] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [cantidad] int  NOT NULL,
-    [precio_neto] int  NOT NULL,
+    [precio_neto] smallint  NOT NULL,
     [proveedor_rut] int  NOT NULL,
     [productoId] int  NOT NULL,
     [fecha_compra] datetime  NOT NULL
@@ -179,12 +179,12 @@ CREATE TABLE [dbo].[produccion] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [fecha_produccion] datetime  NOT NULL,
     [recetaId] int  NOT NULL,
-    [costo_produccion] int  NOT NULL,
+    [costo_produccion] smallint  NOT NULL,
     [cantidad] decimal(18,0)  NOT NULL,
-    [valor_total_venta] smallint  NOT NULL,
-    [rentabilidad_produccion] smallint  NOT NULL,
-    [costo_receta_kilo] smallint  NOT NULL,
-    [valor_venta_kilo] smallint  NOT NULL
+    [valor_total_venta] bigint  NOT NULL,
+    [rentabilidad_produccion] bigint  NOT NULL,
+    [costo_receta_kilo] bigint  NOT NULL,
+    [valor_venta_kilo] bigint  NOT NULL
 );
 GO
 
