@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/20/2018 23:26:14
+-- Date Created: 06/21/2018 01:31:33
 -- Generated from EDMX file: C:\Users\Sebastian\Documents\GitHub\panaderiaBellota2\panaderia\Models\Model1.edmx
 -- --------------------------------------------------
 
@@ -167,7 +167,7 @@ GO
 CREATE TABLE [dbo].[compra] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [cantidad] int  NOT NULL,
-    [precio_neto] smallint  NOT NULL,
+    [precio_neto] bigint  NOT NULL,
     [proveedor_rut] int  NOT NULL,
     [productoId] int  NOT NULL,
     [fecha_compra] datetime  NOT NULL
@@ -179,7 +179,7 @@ CREATE TABLE [dbo].[produccion] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [fecha_produccion] datetime  NOT NULL,
     [recetaId] int  NOT NULL,
-    [costo_produccion] smallint  NOT NULL,
+    [costo_produccion] bigint  NOT NULL,
     [cantidad] decimal(18,0)  NOT NULL,
     [valor_total_venta] bigint  NOT NULL,
     [rentabilidad_produccion] bigint  NOT NULL,

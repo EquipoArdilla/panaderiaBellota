@@ -17,7 +17,7 @@ namespace panaderia.Models
         public int Id { get; set; }
         public System.DateTime fecha_produccion { get; set; }
         public int recetaId { get; set; }
-        public short costo_produccion { get; set; }
+        public long costo_produccion { get; set; }
         public decimal cantidad { get; set; }
         public long valor_total_venta { get; set; }
         public long rentabilidad_produccion { get; set; }

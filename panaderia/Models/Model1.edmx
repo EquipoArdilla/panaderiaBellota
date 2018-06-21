@@ -139,7 +139,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cantidad" Type="int" Nullable="false" />
-    <Property Name="precio_neto" Type="smallint" Nullable="false" />
+    <Property Name="precio_neto" Type="bigint" Nullable="false" />
     <Property Name="proveedor_rut" Type="int" Nullable="false" />
     <Property Name="productoId" Type="int" Nullable="false" />
     <Property Name="fecha_compra" Type="datetime" Nullable="false" />
@@ -151,7 +151,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fecha_produccion" Type="datetime" Nullable="false" />
     <Property Name="recetaId" Type="int" Nullable="false" />
-    <Property Name="costo_produccion" Type="smallint" Nullable="false" />
+    <Property Name="costo_produccion" Type="bigint" Nullable="false" />
     <Property Name="cantidad" Type="decimal" Nullable="false" />
     <Property Name="valor_total_venta" Type="bigint" Nullable="false" />
     <Property Name="rentabilidad_produccion" Type="bigint" Nullable="false" />
@@ -524,7 +524,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
-          <Property Name="precio_neto" Type="Int16" Nullable="false" />
+          <Property Name="precio_neto" Type="Int64" Nullable="false" />
           <NavigationProperty Name="proveedor" Relationship="Database1Model.proveedorcompra" FromRole="compra" ToRole="proveedor" />
           <Property Name="proveedor_rut" Type="Int32" Nullable="false" />
           <NavigationProperty Name="producto" Relationship="Database1Model.productocompra" FromRole="compra" ToRole="producto" />
@@ -563,7 +563,7 @@
           <Property Name="fecha_produccion" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="receta" Relationship="Database1Model.recetaproduccion" FromRole="produccion" ToRole="receta" />
           <Property Name="recetaId" Type="Int32" Nullable="false" />
-          <Property Name="costo_produccion" Type="Int16" Nullable="false" />
+          <Property Name="costo_produccion" Type="Int64" Nullable="false" />
           <Property Name="cantidad" Type="Decimal" Nullable="false" />
           <Property Name="valor_total_venta" Type="Int64" Nullable="false" />
           <Property Name="rentabilidad_produccion" Type="Int64" Nullable="false" />
