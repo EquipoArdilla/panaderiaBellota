@@ -11,8 +11,11 @@ namespace panaderia.Tests.Controllers
     [TestClass]
     public class LineasControllerTest
     {
+        int Id = 3;
+        //string nombre = "Pruebas ";
+        
         [TestMethod]
-        public void IndexLineasNoNulo()
+        public void Index()
         {
 
             lineasController controller = new lineasController();
@@ -29,7 +32,7 @@ namespace panaderia.Tests.Controllers
 
 
         [TestMethod]
-        public void PruebaCreateLineasNoNulo()
+        public void Create()
         {
 
             lineasController controller = new lineasController();
@@ -46,24 +49,60 @@ namespace panaderia.Tests.Controllers
 
 
         [TestMethod]
-        public void PruebaEditLineasNulo()
+        public void Edit()
         {
 
             lineasController controller = new lineasController();
 
             // Act
-            ViewResult result = controller.Edit(10) as ViewResult;
+            ViewResult result = controller.Edit(Id) as ViewResult;
 
             // Assert
             //Assert.IsNotNull(result);
 
             //Assert.AreEqual("Details", result.ViewName);
             //Assert.AreEqual(1,result.ViewBag.id );
-            Assert.IsNull(result);
+            Assert.IsNotNull(result);
         }
 
+        [TestMethod]
+        public void Details()
+        {
 
-     
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Details(Id) as ViewResult;
+
+            // Assert
+            //Assert.IsNotNull(result);
+
+            //Assert.AreEqual("Details", result.ViewName);
+            //Assert.AreEqual(1,result.ViewBag.id );
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void Delete()
+        {
+
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Delete(Id) as ViewResult;
+
+            // Assert
+            //Assert.IsNotNull(result);
+
+            //Assert.AreEqual("Details", result.ViewName);
+            //Assert.AreEqual(1,result.ViewBag.id );
+            Assert.IsNotNull(result);
+        }
+         
+
+
+
+
 
     }
 }
