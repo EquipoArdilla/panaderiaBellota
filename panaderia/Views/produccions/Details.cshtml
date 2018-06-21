@@ -35,13 +35,43 @@
 
 
         <dt>
-            @Html.DisplayName("Valor:")
+            @Html.DisplayName("Costo Receta Kilo:")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.valor)
+            @Html.DisplayFor(model => model.costo_receta_kilo)
         </dd>
-      </dl>
+
+        <dt>
+            @Html.DisplayName("Costo Produccion:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costo_produccion)
+        </dd>
+        <dt>
+            @Html.DisplayName("Valor Por Kilo:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_venta_kilo)
+        </dd>
+        <dt>
+            @Html.DisplayName("Valor Total Kilo:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_total_venta)
+        </dd>
+        <dt>
+            @Html.DisplayName("Rentabilidad Produccion:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rentabilidad_produccion)
+        </dd>
+
+    </dl>
 </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
