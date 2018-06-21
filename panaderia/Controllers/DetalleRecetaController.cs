@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,7 +7,8 @@ using System.Data.Entity;
 using System.Net;
 using System.Web.Mvc;
 using panaderia.Models;
-
+using System.Collections.ObjectModel;
+using System.Collections;
 
 namespace panaderia.Controllers
 {
@@ -34,7 +36,7 @@ namespace panaderia.Controllers
             return RedirectToAction("DetalleReceta");
         }
 
-        public ActionResult AgregaReceta(FormCollection f)
+        public ActionResult AgregaRecetaDetalle(FormCollection f)
         {
             var d = new detalle_receta();
             foreach (var a in f.AllKeys)
@@ -61,26 +63,23 @@ namespace panaderia.Controllers
             {
                 // agrego Detalle recetas a la DB
                 detalle_receta dr = new detalle_receta();
+                producto pr = new producto();
+                receta rt = new receta();
+                //Marco puede usar esto como ejemplo
+                rt = db.receta.Find(d.recetaId);
+                pr = db.producto.Find(d.productoId);
                 dr.cantidad = d.cantidad;
                 dr.recetaId = d.recetaId;
                 dr.productoId = d.productoId;
-                dr.medidaId = d.medidaId;
+                dr.medidaId = pr.medidaId;
                 dr.estado = true;
                 db.detalle_receta.Add(dr);
+                int idReceta = d.recetaId;
+                int valor = (Convert.ToInt16(pr.precio) + (Convert.ToInt16(d.cantidad) * (Convert.ToInt16(rt.costo_receta) / Convert.ToInt16(pr.formato))));
+                rt.costo_receta = Convert.ToInt16(valor);
                 db.SaveChanges();
-                // agrego valor receta 
-                producto pr = new producto();
-                receta rt = new receta();
-                receta rt_busca = new receta();
-                rt = db.receta.Find(d.recetaId);
-                rt_busca = db.receta.Find(d.recetaId);
-                pr = db.producto.Find(d.productoId);
-                short precio_producto = pr.precio;
-                short valor_actual_receta = rt_busca.costo_receta;
-                int costo_receta =  valor_actual_receta + (precio_producto * (short) d.cantidad);
-                rt.costo_receta = (short) costo_receta;
-                db.receta.Add(rt);
-                db.SaveChanges();
+
+                // hasta aqui.
 
 
             }
@@ -90,13 +89,30 @@ namespace panaderia.Controllers
             }
             return RedirectToAction("Index", "DetalleReceta", new { id = d.recetaId });
         }
-        public ActionResult Eliminar(int productoId, int recetaId) // Captura de datos 
+        public ActionResult EliminarInsumo(int productoId, int recetaId) // Captura de datos 
         {
-            var dr = new detalle_receta { productoId = productoId, recetaId = recetaId };//db.detalle_receta.Find(productoId, recetaId);
-            db.detalle_receta.Attach(dr);
-            db.detalle_receta.Remove(dr); //remuevo 
-            db.SaveChanges();
+            try
+            {
+                var dr = new detalle_receta { productoId = productoId, recetaId = recetaId };//db.detalle_receta.Find(productoId, recetaId);
+                producto pr = new producto();
+                receta rt = new receta();
+                rt = db.receta.Find(recetaId);
+                pr = db.producto.Find(productoId);
+                db.detalle_receta.Attach(dr);
+
+
+                rt.costo_receta = (Convert.ToInt16(pr.precio) - (Convert.ToInt16(dr.cantidad) * (Convert.ToInt16(rt.costo_receta) / Convert.ToInt16(pr.formato))));
+
+                db.detalle_receta.Remove(dr); //remuevo 
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("Error al Eliminar Insumo Receta", e);
+            }
             return RedirectToAction("Index", "DetalleReceta", new { id = recetaId });
+
         }
 
         protected override void Dispose(bool disposing)
@@ -107,6 +123,6 @@ namespace panaderia.Controllers
             }
             base.Dispose(disposing);
         }
-        
+
     }
 }

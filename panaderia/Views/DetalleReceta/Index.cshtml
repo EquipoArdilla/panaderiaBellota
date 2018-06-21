@@ -1,64 +1,66 @@
-﻿@{
+﻿
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using panaderia.Models
 @model CombosSelecciona
-    <div class="form-horizontal">
-        <h4>Receta</h4>
-        <hr />
-@using (Html.BeginForm("AgregaReceta", "DetalleReceta", FormMethod.Post))
+<div class="form-horizontal">
+    <h4>Receta</h4>
+    <hr />
+    @using (Html.BeginForm("AgregaRecetaDetalle", "DetalleReceta", FormMethod.Post))
 
-{
-       <input value="@Model.idSeleccionado" name="txtReceta" id="txtReceta" type="hidden"  />
+    {
+        <input value="@Model.idSeleccionado" name="txtReceta" id="txtReceta" type="hidden" />
         <div class="form-group">
-            <label >Producto</label>
+            <label>Producto</label>
             <select id="selectProducto" name="selectProducto" class="form-control">
                 @foreach (var r in Model.producto)
                 {
                     <option value="@r.Id">@r.nombre</option>
                 }
             </select>
-         </div>
-        <div class="form-group">
-            <label >Medida</label>
-            <select id="selectMedida" name="selectMedida" class="form-control">
-                @foreach (var r in Model.medida)
-                {
-                    <option value="@r.Id">@r.nombre</option>
-                }
-            </select>
         </div>
+            <!--
             <div class="form-group">
-                <label >Cantidad</label>
+              <label >Medida</label>
+                <select id="selectMedida" name="selectMedida" class="form-control">
+                    @foreach (var r in Model.medida)
+                    {
+                        <option value="@r.Id">@r.nombre</option>
+                    }
+                </select>
+            </div>-->
+            <div class="form-group">
+                <label>Cantidad</label>
                 <input name="txtCantidad" type="number" class="form-control" required id="txtCantidad" />
             </div>
             <div class="form-group">
-                <button type="submit"  class="btn btn-default">Agregar</button>
+                <button type="submit" class="btn btn-default">Agregar</button>
             </div>
-            }
+    }
 
-            <br /><br />
-            <table class="table">
-                <tr>
-                    <td>receta</td>
-                    <td>producto</td>
-                    <td>medida</td>
-                    <td>cantidad</td>
-                    <td></td>
-                </tr>
-                @foreach (var r in Model.detalle_receta)
-                {
-                    <tr>
-                        <td>@r.receta.nombre</td>
-                        <td>@r.producto.nombre</td>
-                        <td>@r.medida.nombre</td>
-                        <td>@r.cantidad</td>
-                        <td>
-                            <a href="@Url.Action("Eliminar","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
-                        </td>
+    <br /><br />
+    <table class="table">
+        <tr>
+            <td>receta</td>
+            <td>producto</td>
+            <td>medida</td>
+            <td>cantidad</td>
+            <td></td>
+        </tr>
+        @foreach (var r in Model.detalle_receta)
+        {
+            <tr>
+                <td>@r.receta.nombre</td>
+                <td>@r.producto.nombre</td>
+                <td>@r.medida.nombre</td>
+                <td>@r.cantidad</td>
+                <td>
+                    <a href="@Url.Action("EliminarInsumo","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
+                </td>
 
-                    </tr>
-                }
-            </table>
-        </div>
+            </tr>
+        }
+    </table>
+</div>

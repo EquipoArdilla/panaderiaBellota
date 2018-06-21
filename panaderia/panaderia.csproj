@@ -234,7 +234,7 @@
     <Compile Include="test\ProduccionControllerTest.cs" />
     <Compile Include="test\RecetasControllerTest.cs" />
     <Compile Include="test\LineasControllerTest.cs" />
-    <Compile Include="test\DetalleRecetaControllerTest.cs" />
+    <Compile Include="test\RecetasTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database1.mdf" />
