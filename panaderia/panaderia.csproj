@@ -354,7 +354,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />
-    <Folder Include="Views\detalle_receta\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
