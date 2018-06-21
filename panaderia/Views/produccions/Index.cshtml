@@ -22,7 +22,19 @@
             @Html.DisplayName("Cantidad")
         </th>
         <th>
-            @Html.DisplayName("Valor")
+            @Html.DisplayName("Costo Receta Kilo")
+        </th>
+        <th>
+            @Html.DisplayName("Costo Produccion")
+        </th>
+        <th>
+            @Html.DisplayName("Valor Venta Kilo")
+        </th>
+        <th>
+            @Html.DisplayName("Valor venta Total")
+        </th>
+        <th>
+            @Html.DisplayName("Rentabilida Produccion")
         </th>
         <th></th>
     </tr>
@@ -39,13 +51,28 @@
             @Html.DisplayFor(modelItem => item.cantidad)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.valor)
+            @Html.DisplayFor(modelItem => item.costo_receta_kilo)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.costo_produccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor_venta_kilo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor_total_venta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rentabilidad_produccion)
+        </td>
+
+
+        
         <td>
             @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Detalle", "Details", new { id = item.Id }) |
             @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-</td>
+        </td>
     </tr>
 }
 
