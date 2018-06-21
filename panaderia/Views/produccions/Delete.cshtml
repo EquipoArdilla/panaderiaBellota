@@ -21,24 +21,52 @@
         <dt>
             @Html.DisplayName("Receta:")
         </dt>
-         <dd>
+        <dd>
             @Html.DisplayFor(model => model.receta.nombre)
         </dd>
-         <dt>
-             @Html.DisplayName("Cantidad:")
-         </dt>
-         <dd>
+        <dt>
+            @Html.DisplayName("Cantidad:")
+        </dt>
+        <dd>
             @Html.DisplayFor(model => model.cantidad)
         </dd>
 
-         <dt>
-             @Html.DisplayName("Valor:")
-         </dt>
+        <dt>
+            @Html.DisplayName("Costo Receta Kilo:")
+        </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.valor)
+            @Html.DisplayFor(model => model.costo_receta_kilo)
         </dd>
-                
+        <dt>
+            @Html.DisplayName("Costo Produccion:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costo_produccion)
+        </dd>
+        <dt>
+            @Html.DisplayName("Valor Kilo:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_venta_kilo)
+        </dd>
+        <dt>
+            @Html.DisplayName("Valor Total Venta:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_total_venta)
+        </dd>
+        <dt>
+            @Html.DisplayName("Rentabilidad Produccion:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rentabilidad_produccion)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
