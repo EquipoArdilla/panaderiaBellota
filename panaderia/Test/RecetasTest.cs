@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace panaderia.Tests.Controllers
         {
             int rt_originales = db.receta.Count();
             receta rt = new receta();
-            rt.Id = rt_originales+1;
+            rt.Id = rt_originales + 1;
             rt.nombre = nombre;
             db.receta.Add(rt);
             db.SaveChanges();

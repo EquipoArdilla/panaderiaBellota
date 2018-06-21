@@ -1,4 +1,5 @@
-﻿@model IEnumerable<panaderia.Models.receta>
+﻿
+@model IEnumerable<panaderia.Models.receta>
 
 @{
     ViewBag.Title = "Index";
@@ -12,16 +13,16 @@
 <table class="table">
     <tr>
         <th>
-           Código Receta
+            Código Receta
         </th>
         <th>
-           Nombre
+            Nombre
         </th>
         <th>
-           Costo Receta
+            Costo Receta
         </th>
         <th>
-           Valor de venta (Kl)
+            Valor de venta (Kl)
         </th>
         <th>
             Estado
@@ -29,30 +30,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-           $@Html.DisplayFor(modelItem => item.costo_receta)
-        </td>
-       
-        <td>
-            $@Html.DisplayFor(modelItem => item.valor_venta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            <a href="@Url.Action("Index","DetalleReceta", new { id = item.Id })">Insumos</a> |
-         
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.costo_receta)
+            </td>
+
+            <td>
+                $@Html.DisplayFor(modelItem => item.valor_venta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                <a href="@Url.Action("Index","DetalleReceta", new { id = item.Id })">Insumos</a> |
+
+            </td>
+        </tr>
+    }
 
 </table>

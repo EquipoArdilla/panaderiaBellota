@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -74,9 +75,10 @@ namespace panaderia.Controllers
                 dr.estado = true;
                 db.detalle_receta.Add(dr);
                 int idReceta = d.recetaId;
-                int valor= (Convert.ToInt16(pr.precio) + (Convert.ToInt16(d.cantidad)* (Convert.ToInt16(rt.costo_receta)/ Convert.ToInt16(pr.formato))));
+                int valor = (Convert.ToInt16(pr.precio) + (Convert.ToInt16(d.cantidad) * (Convert.ToInt16(rt.costo_receta) / Convert.ToInt16(pr.formato))));
                 rt.costo_receta = Convert.ToInt16(valor);
                 db.SaveChanges();
+
                 // hasta aqui.
 
 
@@ -91,18 +93,18 @@ namespace panaderia.Controllers
         {
             try
             {
-            var dr = new detalle_receta { productoId = productoId, recetaId = recetaId };//db.detalle_receta.Find(productoId, recetaId);
-            producto pr = new producto();
-            receta rt = new receta();
-            rt = db.receta.Find(recetaId);
-            pr = db.producto.Find(productoId);
-            db.detalle_receta.Attach(dr);
+                var dr = new detalle_receta { productoId = productoId, recetaId = recetaId };//db.detalle_receta.Find(productoId, recetaId);
+                producto pr = new producto();
+                receta rt = new receta();
+                rt = db.receta.Find(recetaId);
+                pr = db.producto.Find(productoId);
+                db.detalle_receta.Attach(dr);
 
 
-            rt.costo_receta = (Convert.ToInt16(pr.precio) - (Convert.ToInt16(dr.cantidad) * (Convert.ToInt16(rt.costo_receta) / Convert.ToInt16(pr.formato))));
-           
-            db.detalle_receta.Remove(dr); //remuevo 
-            db.SaveChanges();
+                rt.costo_receta = (Convert.ToInt16(pr.precio) - (Convert.ToInt16(dr.cantidad) * (Convert.ToInt16(rt.costo_receta) / Convert.ToInt16(pr.formato))));
+
+                db.detalle_receta.Remove(dr); //remuevo 
+                db.SaveChanges();
 
             }
             catch (Exception e)
@@ -121,6 +123,6 @@ namespace panaderia.Controllers
             }
             base.Dispose(disposing);
         }
-        
+
     }
 }

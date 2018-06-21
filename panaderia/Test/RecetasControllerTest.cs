@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace panaderia.Tests.Controllers
     public class RecetasControllerTest
     {
         int Id = 0;
-     
+
         [TestMethod]
         public void Index()
         {
@@ -80,6 +81,6 @@ namespace panaderia.Tests.Controllers
             Assert.IsNull(result);
             //Assert.AreEqual(3,result.ViewBag.id );
         }
-       
+
     }
 }
