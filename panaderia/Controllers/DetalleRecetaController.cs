@@ -11,7 +11,7 @@ using panaderia.Models;
 namespace panaderia.Controllers
 {
     [Authorize]
-    public class DetalleRecetaController : Controller
+    public class detalleRecetaController : Controller
     {
         private PanaderiaEntities db = new PanaderiaEntities();
 
@@ -65,8 +65,24 @@ namespace panaderia.Controllers
                 dr.recetaId = d.recetaId;
                 dr.productoId = d.productoId;
                 dr.medidaId = d.medidaId;
+                dr.estado = true;
                 db.detalle_receta.Add(dr);
                 db.SaveChanges();
+                // agrego valor receta 
+                producto pr = new producto();
+                receta rt = new receta();
+                receta rt_busca = new receta();
+                rt = db.receta.Find(d.recetaId);
+                rt_busca = db.receta.Find(d.recetaId);
+                pr = db.producto.Find(d.productoId);
+                short precio_producto = pr.precio;
+                short valor_actual_receta = rt_busca.costo_receta;
+                int costo_receta =  valor_actual_receta + (precio_producto * (short) d.cantidad);
+                rt.costo_receta = (short) costo_receta;
+                db.receta.Add(rt);
+                db.SaveChanges();
+
+
             }
             catch (Exception e)
             {

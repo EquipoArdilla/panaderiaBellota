@@ -16,7 +16,7 @@ namespace panaderia.Tests.Controllers
         public void IndexRecetaDetalleNoNulo()
         {
             // Arrange
-            DetalleRecetaController controller = new DetalleRecetaController();
+            detalleRecetaController controller = new detalleRecetaController();
 
             // Act
             ViewResult result = controller.Index(2) as ViewResult;

@@ -4,15 +4,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Indice Recetas</h2>
+<h2>Recetas</h2>
 
 <p>
-    <button type="button" class="btn">  @Html.ActionLink("Agregar Nueva", "Create")</button>
+    @Html.ActionLink("Crear", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+           Código Receta
+        </th>
+        <th>
+           Nombre
+        </th>
+        <th>
+           Costo Receta
+        </th>
+        <th>
+           Valor de venta (Kl)
+        </th>
+        <th>
+            Estado
         </th>
         <th></th>
     </tr>
@@ -20,12 +32,25 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.nombre)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-            <a href="@Url.Action("Index","DetalleReceta", new { id = item.Id })">Detalle</a> |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+           $@Html.DisplayFor(modelItem => item.costo_receta)
+        </td>
+       
+        <td>
+            $@Html.DisplayFor(modelItem => item.valor_venta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            <a href="@Url.Action("Index","DetalleReceta", new { id = item.Id })">Insumos</a> |
+         
         </td>
     </tr>
 }

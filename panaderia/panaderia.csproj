@@ -158,7 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CombosSelecciona.cs" />
     <Compile Include="Controllers\comprasController.cs" />
-    <Compile Include="Controllers\DetalleRecetaController.cs" />
+    <Compile Include="Controllers\detalleRecetaController.cs" />
     <Compile Include="Controllers\familiasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\lineasController.cs" />
@@ -166,7 +166,7 @@
     <Compile Include="Controllers\produccionsController.cs" />
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
-    <Compile Include="Controllers\RecetasController.cs" />
+    <Compile Include="Controllers\recetasController.cs" />
     <Compile Include="Controllers\ReporteProduccionController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
@@ -328,14 +328,9 @@
     <Content Include="Views\lineas\Details.cshtml" />
     <Content Include="Views\lineas\Edit.cshtml" />
     <Content Include="Views\lineas\Index.cshtml" />
-    <Content Include="Views\DetalleReceta\DetalleReceta.cshtml" />
-    <Content Include="Views\DetalleReceta\Eliminar.cshtml" />
-    <Content Include="Views\DetalleReceta\Index.cshtml" />
-    <Content Include="Views\Recetas\Create.cshtml" />
-    <Content Include="Views\Recetas\Delete.cshtml" />
-    <Content Include="Views\Recetas\Details.cshtml" />
-    <Content Include="Views\Recetas\Edit.cshtml" />
-    <Content Include="Views\Recetas\Index.cshtml" />
+    <Content Include="Views\detalleReceta\DetalleReceta.cshtml" />
+    <Content Include="Views\detalleReceta\Eliminar.cshtml" />
+    <Content Include="Views\detalleReceta\Index.cshtml" />
     <Content Include="Views\productoes\Create.cshtml" />
     <Content Include="Views\productoes\Delete.cshtml" />
     <Content Include="Views\productoes\Details.cshtml" />
@@ -351,6 +346,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\produccions\ReporteKilos.cshtml" />
     <Content Include="Views\ReporteProduccion\Index.cshtml" />
+    <Content Include="Views\recetas\Create.cshtml" />
+    <Content Include="Views\recetas\Delete.cshtml" />
+    <Content Include="Views\recetas\Details.cshtml" />
+    <Content Include="Views\recetas\Edit.cshtml" />
+    <Content Include="Views\recetas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />

@@ -10,18 +10,17 @@ using panaderia.Models;
 
 namespace panaderia.Controllers
 {
-    [Authorize]
-    public class RecetasController : Controller
+    public class recetasController : Controller
     {
         private PanaderiaEntities db = new PanaderiaEntities();
 
-        // GET: Recetas
+        // GET: recetas
         public ActionResult Index()
         {
             return View(db.receta.ToList());
         }
 
-        // GET: Recetas/Details/5
+        // GET: recetas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,18 +35,18 @@ namespace panaderia.Controllers
             return View(receta);
         }
 
-        // GET: Recetas/Create
+        // GET: recetas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Recetas/Create
+        // POST: recetas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre")] receta receta)
+        public ActionResult Create([Bind(Include = "Id,nombre,costo_receta,estado,valor_venta")] receta receta)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +58,7 @@ namespace panaderia.Controllers
             return View(receta);
         }
 
-        // GET: Recetas/Edit/5
+        // GET: recetas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,12 +73,12 @@ namespace panaderia.Controllers
             return View(receta);
         }
 
-        // POST: Recetas/Edit/5
+        // POST: recetas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre")] receta receta)
+        public ActionResult Edit([Bind(Include = "Id,nombre,costo_receta,estado,valor_venta")] receta receta)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +89,7 @@ namespace panaderia.Controllers
             return View(receta);
         }
 
-        // GET: Recetas/Delete/5
+        // GET: recetas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +104,7 @@ namespace panaderia.Controllers
             return View(receta);
         }
 
-        // POST: Recetas/Delete/5
+        // POST: recetas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

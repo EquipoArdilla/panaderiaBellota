@@ -6,9 +6,9 @@
 
 <h2>Delete</h2>
 
-<h3>¿Estás seguro de que quieres borrar esto?</h3>
+<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Receta</h4>
+    <h4>receta</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,14 +19,38 @@
             @Html.DisplayFor(model => model.nombre)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.costo_receta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costo_receta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_venta)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Volver a lista", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>
