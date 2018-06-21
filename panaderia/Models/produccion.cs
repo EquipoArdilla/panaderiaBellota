@@ -17,12 +17,12 @@ namespace panaderia.Models
         public int Id { get; set; }
         public System.DateTime fecha_produccion { get; set; }
         public int recetaId { get; set; }
-        public int costo_produccion { get; set; }
+        public short costo_produccion { get; set; }
         public decimal cantidad { get; set; }
-        public short valor_total_venta { get; set; }
-        public short rentabilidad_produccion { get; set; }
-        public short costo_receta_kilo { get; set; }
-        public short valor_venta_kilo { get; set; }
+        public long valor_total_venta { get; set; }
+        public long rentabilidad_produccion { get; set; }
+        public long costo_receta_kilo { get; set; }
+        public long valor_venta_kilo { get; set; }
     
         public virtual receta receta { get; set; }
     }

@@ -75,9 +75,9 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="costo_receta" Type="smallint" Nullable="false" />
+    <Property Name="costo_receta" Type="bigint" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
-    <Property Name="valor_venta" Type="smallint" Nullable="false" />
+    <Property Name="valor_venta" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="producto">
     <Key>
@@ -89,7 +89,7 @@
     <Property Name="familiaId" Type="int" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
     <Property Name="medidaId" Type="int" Nullable="false" />
-    <Property Name="precio" Type="smallint" Nullable="false" />
+    <Property Name="precio" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="detalle_receta">
     <Key>
@@ -139,7 +139,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cantidad" Type="int" Nullable="false" />
-    <Property Name="precio_neto" Type="int" Nullable="false" />
+    <Property Name="precio_neto" Type="smallint" Nullable="false" />
     <Property Name="proveedor_rut" Type="int" Nullable="false" />
     <Property Name="productoId" Type="int" Nullable="false" />
     <Property Name="fecha_compra" Type="datetime" Nullable="false" />
@@ -151,12 +151,12 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fecha_produccion" Type="datetime" Nullable="false" />
     <Property Name="recetaId" Type="int" Nullable="false" />
-    <Property Name="costo_produccion" Type="int" Nullable="false" />
+    <Property Name="costo_produccion" Type="smallint" Nullable="false" />
     <Property Name="cantidad" Type="decimal" Nullable="false" />
-    <Property Name="valor_total_venta" Type="smallint" Nullable="false" />
-    <Property Name="rentabilidad_produccion" Type="smallint" Nullable="false" />
-    <Property Name="costo_receta_kilo" Type="smallint" Nullable="false" />
-    <Property Name="valor_venta_kilo" Type="smallint" Nullable="false" />
+    <Property Name="valor_total_venta" Type="bigint" Nullable="false" />
+    <Property Name="rentabilidad_produccion" Type="bigint" Nullable="false" />
+    <Property Name="costo_receta_kilo" Type="bigint" Nullable="false" />
+    <Property Name="valor_venta_kilo" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="medida">
     <Key>
@@ -317,9 +317,9 @@
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="detalle_receta" Relationship="Database1Model.recetadetalle_receta" FromRole="receta" ToRole="detalle_receta" />
           <NavigationProperty Name="produccion" Relationship="Database1Model.recetaproduccion" FromRole="receta" ToRole="produccion" />
-          <Property Name="costo_receta" Type="Int16" Nullable="false" />
+          <Property Name="costo_receta" Type="Int64" Nullable="false" />
           <Property Name="estado" Type="Boolean" Nullable="false" />
-          <Property Name="valor_venta" Type="Int16" Nullable="false" />
+          <Property Name="valor_venta" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PanaderiaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="linea" EntityType="Self.linea" />
@@ -393,7 +393,7 @@
           <NavigationProperty Name="compra" Relationship="Database1Model.productocompra" FromRole="producto" ToRole="compra" />
           <NavigationProperty Name="medida" Relationship="Database1Model.medidaproducto" FromRole="producto" ToRole="medida" />
           <Property Name="medidaId" Type="Int32" Nullable="false" />
-          <Property Name="precio" Type="Int16" Nullable="false" />
+          <Property Name="precio" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="detalle_receta">
           <Key>
@@ -524,7 +524,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
-          <Property Name="precio_neto" Type="Int32" Nullable="false" />
+          <Property Name="precio_neto" Type="Int16" Nullable="false" />
           <NavigationProperty Name="proveedor" Relationship="Database1Model.proveedorcompra" FromRole="compra" ToRole="proveedor" />
           <Property Name="proveedor_rut" Type="Int32" Nullable="false" />
           <NavigationProperty Name="producto" Relationship="Database1Model.productocompra" FromRole="compra" ToRole="producto" />
@@ -563,12 +563,12 @@
           <Property Name="fecha_produccion" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="receta" Relationship="Database1Model.recetaproduccion" FromRole="produccion" ToRole="receta" />
           <Property Name="recetaId" Type="Int32" Nullable="false" />
-          <Property Name="costo_produccion" Type="Int32" Nullable="false" />
+          <Property Name="costo_produccion" Type="Int16" Nullable="false" />
           <Property Name="cantidad" Type="Decimal" Nullable="false" />
-          <Property Name="valor_total_venta" Type="Int16" Nullable="false" />
-          <Property Name="rentabilidad_produccion" Type="Int16" Nullable="false" />
-          <Property Name="costo_receta_kilo" Type="Int16" Nullable="false" />
-          <Property Name="valor_venta_kilo" Type="Int16" Nullable="false" />
+          <Property Name="valor_total_venta" Type="Int64" Nullable="false" />
+          <Property Name="rentabilidad_produccion" Type="Int64" Nullable="false" />
+          <Property Name="costo_receta_kilo" Type="Int64" Nullable="false" />
+          <Property Name="valor_venta_kilo" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="medida">
           <Key>

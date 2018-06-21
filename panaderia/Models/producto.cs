@@ -26,7 +26,7 @@ namespace panaderia.Models
         public int familiaId { get; set; }
         public int usuarioId { get; set; }
         public int medidaId { get; set; }
-        public short precio { get; set; }
+        public long precio { get; set; }
     
         public virtual ICollection<detalle_receta> detalle_receta { get; set; }
         public virtual familia familia { get; set; }

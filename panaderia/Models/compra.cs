@@ -16,7 +16,7 @@ namespace panaderia.Models
     {
         public int Id { get; set; }
         public int cantidad { get; set; }
-        public int precio_neto { get; set; }
+        public short precio_neto { get; set; }
         public int proveedor_rut { get; set; }
         public int productoId { get; set; }
         public System.DateTime fecha_compra { get; set; }
