@@ -7,7 +7,7 @@
     <div class="form-horizontal">
         <h4>Receta</h4>
         <hr />
-@using (Html.BeginForm("AgregaReceta", "DetalleReceta", FormMethod.Post))
+@using (Html.BeginForm("AgregaRecetaDetalle", "DetalleReceta", FormMethod.Post))
 
 {
        <input value="@Model.idSeleccionado" name="txtReceta" id="txtReceta" type="hidden"  />
@@ -19,16 +19,16 @@
                     <option value="@r.Id">@r.nombre</option>
                 }
             </select>
-         </div>
+         </div> <!-- 
         <div class="form-group">
-            <label >Medida</label>
+          <label >Medida</label>
             <select id="selectMedida" name="selectMedida" class="form-control">
                 @foreach (var r in Model.medida)
                 {
                     <option value="@r.Id">@r.nombre</option>
                 }
             </select>
-        </div>
+        </div>-->
             <div class="form-group">
                 <label >Cantidad</label>
                 <input name="txtCantidad" type="number" class="form-control" required id="txtCantidad" />
@@ -55,7 +55,7 @@
                         <td>@r.medida.nombre</td>
                         <td>@r.cantidad</td>
                         <td>
-                            <a href="@Url.Action("Eliminar","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
+                            <a href="@Url.Action("EliminarInsumo","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
                         </td>
 
                     </tr>
