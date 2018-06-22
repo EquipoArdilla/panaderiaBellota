@@ -58,7 +58,7 @@ namespace panaderia.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,fecha_produccion,recetaId,valor,cantidad")] produccion produccion)
+        public ActionResult Create([Bind(Include = "Id,fecha_produccion,recetaId,cantidad,costo_receta_kilo,costo_produccion,valor_venta_kilo,valor_total_venta,rentabilidad_produccion")] produccion produccion)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace panaderia.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,fecha_produccion,recetaId,valor,cantidad")] produccion produccion)
+        public ActionResult Edit([Bind(Include = "Id,fecha_produccion,recetaId,cantidad,costo_receta_kilo,costo_produccion,valor_venta_kilo,valor_total_venta,rentabilidad_produccion")] produccion produccion)
         {
             if (ModelState.IsValid)
             {
