@@ -4,23 +4,15 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Eliminar Producto</h2>
+<h2>Delete</h2>
 
-<h3>estas seguro que desea eliminar?</h3>
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>producto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            <label class="col-md-3">Codigo</label>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-
-        <dt>
-            <label class="col-md-3">Nombre</label>
+            @Html.DisplayNameFor(model => model.nombre)
         </dt>
 
         <dd>
@@ -28,7 +20,7 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Formato</label>
+            @Html.DisplayNameFor(model => model.formato)
         </dt>
 
         <dd>
@@ -36,15 +28,15 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Precio Venta</label>
+            @Html.DisplayNameFor(model => model.precio)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.precio_venta)
+            @Html.DisplayFor(model => model.precio)
         </dd>
 
         <dt>
-            <label class="col-md-3">Familia</label>
+            @Html.DisplayNameFor(model => model.familia.nombre)
         </dt>
 
         <dd>
@@ -52,7 +44,7 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Usuario</label>
+            @Html.DisplayNameFor(model => model.usuario.nombre)
         </dt>
 
         <dd>
@@ -60,7 +52,7 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Medida</label>
+            @Html.DisplayNameFor(model => model.medida.nombre)
         </dt>
 
         <dd>
@@ -73,12 +65,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
-</div>
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        <button type="button" class="btn btn-default">@Html.ActionLink("Volver al lista", "Index")</button>
-    </div>
 </div>

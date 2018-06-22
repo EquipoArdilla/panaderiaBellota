@@ -1,24 +1,24 @@
 ﻿@model panaderia.Models.producto
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Details";
 }
 
-<h2>Gestion Detalles</h2>
+<h2>Details</h2>
 
 <div>
     <h4>producto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            <label class="col-md-3">Codigo</label>
+            @Html.DisplayNameFor(model => model.Id)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Id)
         </dd>
         <dt>
-            <label class="col-md-3">Nombre</label>
+            @Html.DisplayNameFor(model => model.nombre)
         </dt>
 
         <dd>
@@ -26,7 +26,7 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Formato</label>
+            @Html.DisplayNameFor(model => model.formato)
         </dt>
 
         <dd>
@@ -34,15 +34,15 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Precio Venta</label>
+            @Html.DisplayNameFor(model => model.precio)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.precio_venta)
+            @Html.DisplayFor(model => model.precio)
         </dd>
 
         <dt>
-            <label class="col-md-3">Familia</label>
+            @Html.DisplayNameFor(model => model.familia.nombre)
         </dt>
 
         <dd>
@@ -50,7 +50,7 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Usuario</label>
+            @Html.DisplayNameFor(model => model.usuario.nombre)
         </dt>
 
         <dd>
@@ -58,7 +58,7 @@
         </dd>
 
         <dt>
-            <label class="col-md-3">Nombre </label>
+            @Html.DisplayNameFor(model => model.medida.nombre)
         </dt>
 
         <dd>
@@ -68,6 +68,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
