@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Editar Producto</h2>
+<h2>Edit</h2>
 
 
 @using (Html.BeginForm())
@@ -18,25 +18,23 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            <label class="col-md-3">Codigo</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-md-3">Nombre Usuario</label>
+            @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
             </div>
         </div>
 
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.formato, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.formato, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.formato, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
-            <label class="col-md-3">Familia</label>
+            @Html.LabelFor(model => model.familiaId, "familiaId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("familiaId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.familiaId, "", new { @class = "text-danger" })
@@ -44,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-md-3">Usuario</label>
+            @Html.LabelFor(model => model.usuarioId, "usuarioId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("usuarioId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.usuarioId, "", new { @class = "text-danger" })
@@ -52,15 +50,15 @@
         </div>
 
         <div class="form-group">
-            <label class="col-md-3">Precio Venta</label>
+            @Html.LabelFor(model => model.precio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.precio_venta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.precio_venta, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.precio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.precio, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-3">Medida</label>
+            @Html.LabelFor(model => model.medidaId, "medidaId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("medidaId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.medidaId, "", new { @class = "text-danger" })
@@ -69,18 +67,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-                <button type="button" class="btn btn-default">@Html.ActionLink("Volver al lista", "Index")</button>
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
-
 }
 
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        <button type="button" class="btn btn-default">@Html.ActionLink("Volver al lista", "Index")</button>
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

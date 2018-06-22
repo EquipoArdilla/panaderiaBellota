@@ -332,11 +332,6 @@
     <Content Include="Views\detalleReceta\DetalleReceta.cshtml" />
     <Content Include="Views\detalleReceta\Eliminar.cshtml" />
     <Content Include="Views\detalleReceta\Index.cshtml" />
-    <Content Include="Views\productoes\Create.cshtml" />
-    <Content Include="Views\productoes\Delete.cshtml" />
-    <Content Include="Views\productoes\Details.cshtml" />
-    <Content Include="Views\productoes\Edit.cshtml" />
-    <Content Include="Views\productoes\Index.cshtml" />
     <Content Include="Views\medida\Create.cshtml" />
     <Content Include="Views\medida\Delete.cshtml" />
     <Content Include="Views\medida\Details.cshtml" />
@@ -352,6 +347,11 @@
     <Content Include="Views\recetas\Details.cshtml" />
     <Content Include="Views\recetas\Edit.cshtml" />
     <Content Include="Views\recetas\Index.cshtml" />
+    <Content Include="Views\productoes\Create.cshtml" />
+    <Content Include="Views\productoes\Delete.cshtml" />
+    <Content Include="Views\productoes\Details.cshtml" />
+    <Content Include="Views\productoes\Edit.cshtml" />
+    <Content Include="Views\productoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RptReportes\" />

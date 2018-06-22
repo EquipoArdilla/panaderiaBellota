@@ -7,12 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using panaderia.Models;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace panaderia.Controllers
 {
-    [Authorize]
     public class productoesController : Controller
     {
         private PanaderiaEntities db = new PanaderiaEntities();
@@ -53,7 +50,7 @@ namespace panaderia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre,formato,familiaId,usuarioId,precio_venta,medidaId")] producto producto)
+        public ActionResult Create([Bind(Include = "Id,nombre,formato,familiaId,usuarioId,medidaId,precio")] producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +88,7 @@ namespace panaderia.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre,formato,familiaId,usuarioId,precio_venta,medidaId")] producto producto)
+        public ActionResult Edit([Bind(Include = "Id,nombre,formato,familiaId,usuarioId,medidaId,precio")] producto producto)
         {
             if (ModelState.IsValid)
             {
