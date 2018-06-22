@@ -15,57 +15,57 @@ namespace panaderia.Tests.Controllers
     public class LineaTest
     {
         PanaderiaEntities db = new PanaderiaEntities();
-        string nombre = "Pruebas " + DateTime.Today;
+        string nombre = "Prueba" + DateTime.Today;
         string nombre_remplazo = "Reemplazo " + DateTime.Today;
 
         [TestMethod]
         public void Insercion()
         {
-            int rt_originales = db.linea.Count();
-            linea rt = new linea();
-            rt.Id = rt_originales + 1;
-            rt.nombre = nombre;
-            db.linea.Add(rt);
+            int ln_originales = db.linea.Count();
+            linea ln = new linea();
+            ln.Id = ln_originales + 1;
+            ln.nombre = nombre;
+            db.linea.Add(ln);
             db.SaveChanges();
-            int rt_cambiadas = db.linea.Count();
-            Assert.AreEqual(rt_originales + 1, rt_cambiadas);
+            int ln_cambiadas = db.linea.Count();
+            Assert.AreEqual(ln_originales + 1, ln_cambiadas);
         }
 
         [TestMethod]
         public void Busqueda()
         {
-            linea rt = new linea();
+            linea ln = new linea();
             string nombre_linea = nombre;
-            int rt_linea = db.linea.Count();
-            rt = db.linea.Find(Convert.ToInt16(rt_linea));
+            int ln_linea = db.linea.Count();
+            ln = db.linea.Find(Convert.ToInt16(ln_linea));
             //Prueba de buscar
-            Assert.AreEqual(rt.nombre, nombre_linea);
+            Assert.AreEqual(ln.nombre, nombre_linea);
 
         }
 
         [TestMethod]
         public void Edicion()
         {
-            int rt_originales = db.linea.Count();
-            linea rt = new linea();
-            string rt_nombre_reemplazo = nombre_remplazo;
-            string rt_nombre_orginal = nombre;
-            rt = db.linea.Find(Convert.ToInt16(rt_originales));
-            rt.nombre = rt_nombre_reemplazo;
+            int ln_originales = db.linea.Count();
+            linea ln = new linea();
+            string ln_nombre_reemplazo = nombre_remplazo;
+            string ln_nombre_orginal = nombre;
+            ln = db.linea.Find(Convert.ToInt16(ln_originales));
+            ln.nombre = ln_nombre_reemplazo;
             db.SaveChanges();
-            Assert.AreNotEqual(rt.nombre, rt_nombre_orginal);
+            Assert.AreNotEqual(ln.nombre, ln_nombre_orginal);
         }
 
         [TestMethod]
         public void Eliminacion()
         {
-            int rt_originales = db.linea.Count();
-            linea rt = new linea();
-            rt = db.linea.Find(Convert.ToInt16(rt_originales));
-            db.linea.Remove(rt);
+            int ln_originales = db.linea.Count();
+            linea ln = new linea();
+            ln = db.linea.Find(Convert.ToInt16(ln_originales));
+            db.linea.Remove(ln);
             db.SaveChanges();
-            int rt_cambiadas = db.linea.Count();
-            Assert.AreEqual(rt_originales - 1, rt_cambiadas);
+            int ln_cambiadas = db.linea.Count();
+            Assert.AreEqual(ln_originales - 1, ln_cambiadas);
         }
     }
 }

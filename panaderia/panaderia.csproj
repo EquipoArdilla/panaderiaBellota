@@ -226,7 +226,7 @@
     <Compile Include="test\ComprasControllerTest.cs" />
     <Compile Include="test\FamiliasControllerTest.cs" />
     <Compile Include="test\HomeControllerTest.cs" />
-    <Compile Include="test\MedidasTest - Copia.cs" />
+    <Compile Include="test\FamiliaTest.cs" />
     <Compile Include="test\ProductoesControllertest2.cs" />
     <Compile Include="test\proveedorsControllerTest.cs" />
     <Compile Include="test\UsuarioControllerTest.cs" />
