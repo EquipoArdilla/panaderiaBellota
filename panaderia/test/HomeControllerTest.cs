@@ -13,7 +13,22 @@ namespace panaderia.Tests.Controllers
     public class HomeControlerTest
     {
         [TestMethod]
-        public void LoginNoNulo()
+        public void Index()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+
+        }
+
+
+        [TestMethod]
+        public void Login()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -23,7 +38,11 @@ namespace panaderia.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
-            
+
         }
+
+
+
+
     }
 }
