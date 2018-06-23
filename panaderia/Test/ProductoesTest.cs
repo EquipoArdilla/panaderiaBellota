@@ -25,6 +25,10 @@ namespace panaderia.Tests.Controllers
             producto rd = new producto();
             rd.Id = rd_originales + 1;
             rd.nombre = nombre;
+            rd.familiaId = 1;
+            rd.usuarioId = 1;
+            rd.medidaId = 3;
+            rd.precio = 200;
             db.producto.Add(rd);
             db.SaveChanges();
             int rd_cambiadas = db.producto.Count();
