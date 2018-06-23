@@ -154,6 +154,5 @@ namespace panaderia.Tests.Controllers
             int pr_cambiadas = db.produccion.Count();
             Assert.AreEqual(pr_originales - 1, pr_cambiadas);
         }
-
     }
 }
