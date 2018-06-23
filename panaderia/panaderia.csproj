@@ -226,6 +226,7 @@
     <Compile Include="test\FamiliasControllerTest.cs" />
     <Compile Include="test\HomeControllerTest.cs" />
     <Compile Include="test\FamiliaTest.cs" />
+    <Compile Include="test\ProduccionControllerTest.cs" />
     <Compile Include="test\ProveedorTest.cs" />
     <Compile Include="test\ProductoesTest.cs" />
     <Compile Include="test\proveedorsControllerTest.cs" />
@@ -234,7 +235,6 @@
     <Compile Include="test\RolUsuarioTest.cs" />
     <Compile Include="test\LineaTest.cs" />
     <Compile Include="test\ProductoesControllerTest.cs" />
-    <Compile Include="test\ProduccionControllerTest.cs" />
     <Compile Include="test\RecetasControllerTest.cs" />
     <Compile Include="test\LineasControllerTest.cs" />
     <Compile Include="test\RecetasTest.cs" />
@@ -343,7 +343,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\produccions\ReporteKilos.cshtml" />
-    <Content Include="Views\ReporteProduccion\Index.cshtml" />
     <Content Include="Views\recetas\Create.cshtml" />
     <Content Include="Views\recetas\Delete.cshtml" />
     <Content Include="Views\recetas\Details.cshtml" />

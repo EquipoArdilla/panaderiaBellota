@@ -12,7 +12,7 @@ namespace panaderia.Tests.Controllers
     public class ProduccionControllerTest
     {
         PanaderiaEntities db = new PanaderiaEntities();
-       
+
 
         [TestMethod]
         public void Index()
@@ -91,6 +91,7 @@ namespace panaderia.Tests.Controllers
             //Assert.AreEqual("Details", result.ViewName);
 
         }
+
 
     }
 }
