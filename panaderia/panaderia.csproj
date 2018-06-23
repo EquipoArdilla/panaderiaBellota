@@ -223,6 +223,7 @@
     <Compile Include="MyRoleProvider\SiteRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test\ComprasControllerTest.cs" />
+    <Compile Include="test\ComprasTest.cs" />
     <Compile Include="test\FamiliasControllerTest.cs" />
     <Compile Include="test\HomeControllerTest.cs" />
     <Compile Include="test\FamiliaTest.cs" />
