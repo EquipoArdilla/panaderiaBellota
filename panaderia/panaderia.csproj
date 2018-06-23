@@ -167,7 +167,6 @@
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
     <Compile Include="Controllers\recetasController.cs" />
-    <Compile Include="Controllers\ReporteProduccionController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,10 +226,10 @@
     <Compile Include="test\FamiliasControllerTest.cs" />
     <Compile Include="test\HomeControllerTest.cs" />
     <Compile Include="test\FamiliaTest.cs" />
-    <Compile Include="test\ProduccionControllerTest1.cs" />
     <Compile Include="test\ProveedorTest.cs" />
     <Compile Include="test\ProductoesTest.cs" />
     <Compile Include="test\proveedorsControllerTest.cs" />
+    <Compile Include="test\RolUsuarioControllerTest.cs" />
     <Compile Include="test\UsuarioControllerTest.cs" />
     <Compile Include="test\RolUsuarioTest.cs" />
     <Compile Include="test\LineaTest.cs" />
