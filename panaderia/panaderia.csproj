@@ -230,6 +230,7 @@
     <Compile Include="test\ProveedorTest.cs" />
     <Compile Include="test\ProductoesTest.cs" />
     <Compile Include="test\proveedorsControllerTest.cs" />
+    <Compile Include="test\RolUsuarioControllerTest.cs" />
     <Compile Include="test\UsuarioControllerTest.cs" />
     <Compile Include="test\RolUsuarioTest.cs" />
     <Compile Include="test\LineaTest.cs" />
