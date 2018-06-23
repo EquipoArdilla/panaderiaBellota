@@ -16,7 +16,7 @@ namespace panaderia.Tests.Controllers
     {
         PanaderiaEntities db = new PanaderiaEntities();
         string nombre = "Pruebas " + DateTime.Today;
-        string nombre_remplazo = "Reemplazo " + DateTime.Today;
+        
 
         [TestMethod]
         public void Insercion()
@@ -35,22 +35,21 @@ namespace panaderia.Tests.Controllers
         public void Busqueda()
         {
             receta rt = new receta();
-            string nombre_receta = nombre;
-            int rt_cantidad = db.receta.Count();
-            rt = db.receta.Find(Convert.ToInt16(rt_cantidad));
+            int idBusca = 1;
+            rt = db.receta.Find(idBusca);
             //Prueba de buscar
-            Assert.AreEqual(rt.nombre, nombre_receta);
-
+            Assert.AreEqual(rt.Id, idBusca);
         }
 
         [TestMethod]
         public void Edicion()
         {
-            int rt_originales = db.receta.Count();
+            int idBusca = 1;
+            Random rnd = new Random();
             receta rt = new receta();
-            string rt_nombre_reemplazo = nombre_remplazo;
-            string rt_nombre_orginal = nombre;
-            rt = db.receta.Find(Convert.ToInt16(rt_originales));
+            string rt_nombre_reemplazo = "Reemplazo " + rnd.Next(0, 100);
+            rt = db.receta.Find(idBusca);
+            string rt_nombre_orginal = rt.nombre;
             rt.nombre = rt_nombre_reemplazo;
             db.SaveChanges();
             Assert.AreNotEqual(rt.nombre, rt_nombre_orginal);
@@ -61,7 +60,7 @@ namespace panaderia.Tests.Controllers
         {
             int rt_originales = db.receta.Count();
             receta rt = new receta();
-            rt = db.receta.Find(Convert.ToInt16(rt_originales));
+            rt = db.receta.Find(rt_originales);
             db.receta.Remove(rt);
             db.SaveChanges();
             int rt_cambiadas = db.receta.Count();
