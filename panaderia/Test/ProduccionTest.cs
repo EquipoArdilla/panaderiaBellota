@@ -44,12 +44,10 @@ namespace panaderia.Tests.Controllers
         public void Busqueda()
         {
             produccion pr = new produccion();
-            int pr_cantidad = db.produccion.Count();
-            pr = db.produccion.Find(Convert.ToInt16(pr_cantidad));
-            int numero_produccion = pr_cantidad;
+            int idBusca = 1;
+            pr = db.produccion.Find(idBusca);
             //Prueba de buscar
-            Assert.AreEqual(pr.Id, numero_produccion);
-
+            Assert.AreEqual(pr.Id, idBusca);
         }
 
         [TestMethod]
