@@ -10,11 +10,15 @@ using panaderia.Controllers;
 namespace panaderia.Tests.Controllers
 {
     [TestClass]
-    public class UsuarioTest
+    public class UsuarioControllerTest
     {
+        int Id = 3;
+        //string nombre = "Pruebas ";
+
         [TestMethod]
-        public void IndexUsuariosNoNulo()        {
-            // Arrange
+        public void Index()
+        {
+
             usuariosController controller = new usuariosController();
 
             // Act
@@ -22,7 +26,71 @@ namespace panaderia.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
-            //Assert.AreEqual(3,result.ViewBag.id );
+
+            //Assert.AreEqual("Details", result.ViewName);
+
         }
+
+
+        [TestMethod]
+        public void Create()
+        {
+
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Create() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+
+            //Assert.AreEqual("Details", result.ViewName);
+
+        }
+
+
+        [TestMethod]
+        public void Edit()
+        {
+
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Edit(Id) as ViewResult;
+
+            // Assert
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void Details()
+        {
+
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Details(Id) as ViewResult;
+
+            // Assert
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void Delete()
+        {
+
+            lineasController controller = new lineasController();
+
+            // Act
+            ViewResult result = controller.Delete(Id) as ViewResult;
+
+            // Assert
+
+            Assert.IsNotNull(result);
+        }
+
+
     }
 }
