@@ -242,6 +242,7 @@
     <Compile Include="test\RecetasControllerTest.cs" />
     <Compile Include="test\LineasControllerTest.cs" />
     <Compile Include="test\RecetasTest.cs" />
+    <Compile Include="test\UsuarioTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database1.mdf" />
