@@ -167,7 +167,6 @@
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\proveedorsController.cs" />
     <Compile Include="Controllers\recetasController.cs" />
-    <Compile Include="Controllers\ReporteProduccionController.cs" />
     <Compile Include="Controllers\rolusuariosController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
