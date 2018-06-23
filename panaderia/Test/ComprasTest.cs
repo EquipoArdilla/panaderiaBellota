@@ -18,9 +18,6 @@ namespace panaderia.Tests.Controllers
     {
         PanaderiaEntities db = new PanaderiaEntities();
 
-
-
-
         [TestMethod]
         public void Insercion()
         {
