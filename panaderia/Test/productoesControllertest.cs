@@ -10,9 +10,9 @@ using panaderia.Controllers;
 namespace panaderia.Tests.Controllers
 {
     [TestClass]
-    public class ProductoesControllertest
+    public class ProductoesControllerTest
     {
-        int Id = 3;
+        int Id = 30;
         //string nombre = "Pruebas ";
 
         [TestMethod]
