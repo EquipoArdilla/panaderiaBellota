@@ -75,7 +75,7 @@ namespace panaderia.Controllers
                 dr.estado = true;
                 db.detalle_receta.Add(dr);
                 int idReceta = d.recetaId;
-                int valor = (Convert.ToInt16(pr.precio) + (Convert.ToInt16(d.cantidad) * (Convert.ToInt16(rt.costo_receta) / Convert.ToInt16(pr.formato))));
+                int valor = Convert.ToInt16(rt.costo_receta) + (Convert.ToInt16(d.cantidad) * ((Convert.ToInt16(pr.precio) / Convert.ToInt16(pr.formato))));
                 rt.costo_receta = Convert.ToInt16(valor);
                 db.SaveChanges();
 
@@ -93,19 +93,26 @@ namespace panaderia.Controllers
         {
             try
             {
-                var dr = new detalle_receta { productoId = productoId, recetaId = recetaId };//db.detalle_receta.Find(productoId, recetaId);
+                int recId = recetaId;
+                int proId = productoId;
+                int cantidadD = 0;
+                var dr = new detalle_receta { productoId = productoId, recetaId = recetaId };//db.detalle_receta.Find(productoId, recetaId);   
                 producto pr = new producto();
                 receta rt = new receta();
                 rt = db.receta.Find(recetaId);
                 pr = db.producto.Find(productoId);
                 db.detalle_receta.Attach(dr);
-
-
-                rt.costo_receta = (Convert.ToInt16(pr.precio) - (Convert.ToInt16(dr.cantidad) * (Convert.ToInt16(rt.costo_receta) / Convert.ToInt16(pr.formato))));
-
+                var query = from rtd in db.detalle_receta group rtd.cantidad by new { productoId = rtd.productoId, recetaId = rtd.recetaId };
+                foreach (var grp in query)
+                {
+                    foreach (var listing in grp)
+                    {
+                        cantidadD = (int) listing;
+                    }
+                }
+                rt.costo_receta = Convert.ToInt16(rt.costo_receta) - (cantidadD * ((Convert.ToInt16(pr.precio) / Convert.ToInt16(pr.formato))));
                 db.detalle_receta.Remove(dr); //remuevo 
                 db.SaveChanges();
-
             }
             catch (Exception e)
             {
