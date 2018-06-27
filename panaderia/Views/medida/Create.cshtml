@@ -5,24 +5,31 @@
 <h2>Gestión de Medidas de Productos.</h2>
 @using (Html.BeginForm()){
     @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <h4>Nueva medida.</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <label class="control-label col-md-2">Nombre Medida</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
-            </div>
+<div class="form-horizontal">
+    <h4>Nueva medida.</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Id Medida</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Crear" class="btn btn-default" />
-                <button type="button" class="btn btn-default">  @Html.ActionLink("Volver", "Index")</button>
-            </div>            
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Nombre Medida</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
         </div>
-    </div>        
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Crear" class="btn btn-default" />
+            <button type="button" class="btn btn-default">  @Html.ActionLink("Volver", "Index")</button>
+        </div>
+    </div>
+</div>        
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
