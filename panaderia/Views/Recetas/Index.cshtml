@@ -6,9 +6,9 @@
 }
 
 <h2>Recetas</h2>
-
+    <input type="hidden" value="si" id="valida" />
 <p>
-    <button type="button" class="btn">@Html.ActionLink("Crear", "Create")</button>
+    <button type="button" id="crear" class="btn">@Html.ActionLink("Crear", "Create")</button>
 </p>
 <table class="table">
     <tr>
@@ -37,7 +37,8 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
+
+                <span id="nombreReceta" name="@item.nombre">@item.nombre</span>
             </td>
             <td>
                 $@Html.DisplayFor(modelItem => item.costo_receta)
@@ -50,8 +51,9 @@
                 @Html.DisplayFor(modelItem => item.estado)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                <a href="@Url.Action("Index","DetalleReceta", new { id = item.Id })">Insumos</a> |
+                <a href="/recetas/Edit/@item.Id" id="@item.Id">Editar</a>
+                |
+                <a href="/DetalleReceta/Index/@item.Id" id="insumo @item.Id">Insumos</a>
 
             </td>
         </tr>
