@@ -37,7 +37,6 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-
                 <span id="nombreReceta" name="@item.nombre">@item.nombre</span>
             </td>
             <td>
@@ -48,7 +47,16 @@
                 $@Html.DisplayFor(modelItem => item.valor_venta)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.estado)
+                <input 
+                       @{
+                           string selecciona = "";
+                           if (item.estado == true)
+                           {
+
+                               selecciona= "checked=\"checked\"";
+                           }
+
+                       }  @selecciona id="estado @item.Id" class="check-box" disabled="disabled" type="checkbox">
             </td>
             <td>
                 <a href="/recetas/Edit/@item.Id" id="@item.Id">Editar</a>
