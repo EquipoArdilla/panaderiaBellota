@@ -57,7 +57,7 @@
                 <td>@r.medida.nombre</td>
                 <td>@r.cantidad</td>
                 <td>
-                    <a id="@r.recetaId @r.productoId" href="@Url.Action("EliminarInsumo","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
+                    <a id="@r.producto.nombre @r.recetaId" href="@Url.Action("EliminarInsumo","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
                 </td>
 
             </tr>
