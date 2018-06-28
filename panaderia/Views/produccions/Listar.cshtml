@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<panaderia.Models.produccion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listar";
 }
 
 <h2>Produccion</h2>
 
 <p>
     <button type="button" class="btn">@Html.ActionLink("Nuevo", "Create")</button>
-    <button type="button" id="listar"  class="btn">@Html.ActionLink("Mostrar Todo", "Listar")</button>
 </p>
 <table class="table">
     <tr>
@@ -43,7 +42,11 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @if (Model.Count() > 0)
+    {
+
+        foreach (var item in Model)
+        {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Id)
@@ -81,6 +84,12 @@
             @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
         </td>
     </tr>
-}
+            }
+        }
 
+        else
+        {
+            < p > No existen datos</ p >
+        }
+    }
 </table>
