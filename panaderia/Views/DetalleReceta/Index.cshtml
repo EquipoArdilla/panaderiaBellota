@@ -52,12 +52,12 @@
         @foreach (var r in Model.detalle_receta)
         {
             <tr>
-                <td>@r.receta.nombre</td>
-                <td>@r.producto.nombre</td>
+                <td> @r.receta.nombre</td>
+                <td><span id="@r.producto.nombre">@r.producto.nombre</span></td>
                 <td>@r.medida.nombre</td>
                 <td>@r.cantidad</td>
                 <td>
-                    <a href="@Url.Action("EliminarInsumo","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
+                    <a id="@r.recetaId @r.productoId" href="@Url.Action("EliminarInsumo","DetalleReceta", new { productoId=r.productoId, recetaId= r.recetaId })">Eliminar</a>
                 </td>
 
             </tr>
