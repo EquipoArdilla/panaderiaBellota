@@ -7,13 +7,15 @@
 <h2>Gestión de Medidas de Productos</h2>
 
 <p>
-    <button type="button" class="btn">@Html.ActionLink("Crear", "Create")</button>
+    <button type="button" id="crear" class="btn">@Html.ActionLink("Crear", "Create")</button>
 </p>
 <table class="table">
     <tr>
         <th>
-            <label class="col-md-4">Código Medida</label>
-            <label class="col-md-4">Nombre Medida</label>
+            Código Medida
+        </th>
+        <th>
+            Nombre
         </th>
         <th></th>
     </tr>
@@ -22,16 +24,19 @@
     {
         <tr>
             <td>
-                <label class="col-md-4">@Html.DisplayFor(modelItem => item.Id)</label>
-                <label class="col-md-4">@Html.DisplayFor(modelItem => item.nombre)</label>
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                <button type="button" class="btn btn-default"> @Html.ActionLink("Editar", "Edit", new { id = item.Id }) </button>
-                <button type="button" class="btn btn-default">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
-                <button type="button" class="btn btn-default"> @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+                <span id="nombreMedida" name="@item.nombre">@item.nombre</span>
+            </td>
+            <td>
+                <a href="/medida/Edit/@item.Id" id="@item.nombre">Editar</a>|
 
+                <a href="/medida/Delete/@item.Id" id="delete @item.nombre">Eliminar</a>|
+
+                <a href="/medida/Details/@item.Id" id="@item.Id">Detalles</a>
             </td>
         </tr>
     }
-      
+
 </table>
