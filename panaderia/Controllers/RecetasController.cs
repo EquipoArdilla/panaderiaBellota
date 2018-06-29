@@ -55,14 +55,15 @@ namespace panaderia.Controllers
                 {
                     db.receta.Add(receta);
                     db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    Console.WriteLine(ex.Message);
-                    return Json(new { status = "error", message = "error creating customer" });
+                    ModelState.AddModelError("", "Código de Receta ya se encuetra registrado, por favor verifique!!");
+                    
                 }
 
-                return RedirectToAction("Index");
+               
             }
 
             return View(receta);

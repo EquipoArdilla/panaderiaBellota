@@ -61,10 +61,21 @@ namespace panaderia.Controllers
             //return null;
             try
             {
+                int cantidadD = 0;
                 // agrego Detalle recetas a la DB
                 detalle_receta dr = new detalle_receta();
                 producto pr = new producto();
                 receta rt = new receta();
+
+                //var query = from rtd in db.detalle_receta group rtd.cantidad by new { productoId = rtd.productoId, recetaId = rtd.recetaId };
+                //foreach (var grp in query)
+                //{
+                //    foreach (var listing in grp)
+                //    {
+                //        cantidadD = (int)listing;
+                //    }
+                //}
+
                 //Marco puede usar esto como ejemplo
                 rt = db.receta.Find(d.recetaId);
                 pr = db.producto.Find(d.productoId);
