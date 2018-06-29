@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                <span id="nombreReceta" name="@item.nombre">@item.nombre</span>
+                <span id="@item.Id" name="@item.nombre">@item.nombre</span>
             </td>
             <td>
                 $@Html.DisplayFor(modelItem => item.costo_receta)
@@ -59,7 +59,7 @@
                        }  @selecciona id="estado @item.Id" class="check-box" disabled="disabled" type="checkbox">
             </td>
             <td>
-                <a href="/recetas/Edit/@item.Id" id="@item.Id">Editar</a>
+                <a href="/recetas/Edit/@item.Id" >Editar</a>
                 |
                 <a href="/DetalleReceta/Index/@item.Id" id="insumo @item.Id">Insumos</a>
 
