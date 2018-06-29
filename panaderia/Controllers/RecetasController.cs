@@ -51,9 +51,19 @@ namespace panaderia.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.receta.Add(receta);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.receta.Add(receta);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Código de Receta ya se encuetra registrado, por favor verifique!!");
+                    
+                }
+
+               
             }
 
             return View(receta);
