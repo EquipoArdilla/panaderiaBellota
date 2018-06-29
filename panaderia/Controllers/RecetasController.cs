@@ -51,8 +51,17 @@ namespace panaderia.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.receta.Add(receta);
-                db.SaveChanges();
+                try
+                {
+                    db.receta.Add(receta);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return Json(new { status = "error", message = "error creating customer" });
+                }
+
                 return RedirectToAction("Index");
             }
 
