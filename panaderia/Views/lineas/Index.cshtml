@@ -10,7 +10,7 @@
     <button type="button" class="btn" id="crear">@Html.ActionLink("Crear Nuevo", "Create")</button>
     
 </p>
-<table class="table">
+<table class="table", id="tablaLineas">
     <tr>
         <th>
             <label class="col-md-4">Codigo</label>            
@@ -22,11 +22,11 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
+        <td class="colum1" id="cidlinea">
+            @Html.DisplayFor(modelItem => item.Id, new { htmlAttributes =  new { @id = "lineaId"  } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
+        <td class="colum2" id="cnombrelinea">
+            @Html.DisplayFor(modelItem => item.nombre, new { htmlAttributes = new { @id = "lineaNombre" } })
         </td>              
        
         <td>
