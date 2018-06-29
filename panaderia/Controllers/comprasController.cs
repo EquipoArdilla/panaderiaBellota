@@ -86,7 +86,7 @@ namespace panaderia.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,cantidad,precio_neto,proveedor_rut,productoId")] compra compra)
+        public ActionResult Edit([Bind(Include = "Id,cantidad,precio_neto,proveedor_rut,productoId,fecha_compra")] compra compra)
         {
             if (ModelState.IsValid)
             {
