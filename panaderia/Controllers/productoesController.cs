@@ -39,9 +39,9 @@ namespace panaderia.Controllers
         // GET: productoes/Create
         public ActionResult Create()
         {
-            ViewBag.familiaId = new SelectList(db.familia, "Id", "familia");
-            ViewBag.usuarioId = new SelectList(db.usuario, "Id", "usuario");
-            ViewBag.medidaId = new SelectList(db.medida, "Id", "medida");
+            ViewBag.familiaId = new SelectList(db.familia, "Id", "nombre");
+            ViewBag.usuarioId = new SelectList(db.usuario, "Id", "nombre");
+            ViewBag.medidaId = new SelectList(db.medida, "Id", "nombre");
             return View();
         }
 
