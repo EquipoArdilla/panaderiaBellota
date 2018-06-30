@@ -71,7 +71,7 @@ namespace panaderia.Controllers
                 {
                     cantidadD = grp;
                 }
-                if (cantidadD != 0) throw new ArgumentException("Product not found");
+                if (cantidadD != 0) throw new ArgumentException("Producto ya se encuentra registrado");
 
                 rt = db.receta.Find(d.recetaId);
                 pr = db.producto.Find(d.productoId);
@@ -86,15 +86,15 @@ namespace panaderia.Controllers
                 rt.costo_receta = Convert.ToInt16(valor);
                 db.SaveChanges();
 
-                // hasta aqui.
-
+ 
+                return RedirectToAction("Index", "DetalleReceta", new { id = d.recetaId });
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                ModelState.AddModelError("error", "Error al Agregar Detalle Receta"+e);
+                return RedirectToAction("Index", "DetalleReceta", new { id = d.recetaId, editar=1 });
             }
 
-            return RedirectToAction("Index", "DetalleReceta", new { id = d.recetaId });
+           
 
 
         }
