@@ -27,7 +27,7 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                <span id="nombreMedida" name="@item.nombre">@item.nombre</span>
+                <span id="@item.Id" name="@item.nombre">@item.nombre</span>
             </td>
             <td>
                 <a href="/medida/Edit/@item.Id" id="@item.nombre">Editar</a>|
