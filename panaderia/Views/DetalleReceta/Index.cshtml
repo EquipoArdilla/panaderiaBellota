@@ -6,12 +6,14 @@
 @using panaderia.Models
 @model CombosSelecciona
 <div class="form-horizontal">
-    <h4>Receta</h4>
+    <h4>Receta Detalle</h4>
     <hr />
     @using (Html.BeginForm("AgregaRecetaDetalle", "DetalleReceta", FormMethod.Post))
 
     {
-      @Html.ValidationSummary()
+        
+      string error = Request.QueryString["editar"] == "1" ? "Producto ya agregado a receta, por favor verique!!!" : "";
+            
         <input value="@Model.idSeleccionado" name="txtReceta" id="txtReceta" type="hidden" />
         <div class="form-group">
             <label>Producto</label>
@@ -21,6 +23,7 @@
                     <option value="@r.Id">@r.nombre</option>
                 }
             </select>
+            <span style="color:#ff0000;">@error </span>
         </div>
             <!--
             <div class="form-group">
