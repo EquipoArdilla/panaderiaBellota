@@ -75,12 +75,15 @@
             @Html.ValidationMessageFor(model => model.rentabilidad_produccion, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Grabar" class="btn btn-default" />
+            <input type="submit" value="Guardar" class="btn btn-default" id="guardar" />
+            <button type="button" class="btn btn-default">@Html.ActionLink("Volver", "Index")</button>
         </div>
     </div>
 </div>
+
 }
 
 <div>

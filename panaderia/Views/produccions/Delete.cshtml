@@ -72,9 +72,11 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
+        
+
         <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-            @Html.ActionLink("Volver", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-default" id="btnEliminar" /> 
+            <button type="button" class="btn btn-default">@Html.ActionLink("Volver", "Index")</button>
         </div>
     }
 </div>
