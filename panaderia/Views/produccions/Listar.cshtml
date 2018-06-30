@@ -9,10 +9,10 @@
 <p>
     <button type="button" class="btn">@Html.ActionLink("Nuevo", "Create")</button>
 </p>
-<table class="table">
+<table class="table", id="tablaProduccion">
     <tr>
         <th>
-            @Html.DisplayName("Correlativo")
+            @Html.DisplayName("Codigo Produccion")
         </th>
         <th>
             @Html.DisplayName("Fecha Produccion")
@@ -48,33 +48,35 @@
         foreach (var item in Model)
         {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
+        <td class="colum1" id="cidproduccion">
+
+            @Html.DisplayFor(modelItem => item.Id, new { htmlAttributes = new { @id = "produccionId" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha_produccion)
+          <td class="colum2" id="cfechaproduccion">
+            @Html.DisplayFor(modelItem => item.fecha_produccion, new { htmlAttributes = new { @id = "produccionFecha" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.receta.nombre)
+        <td class="colum3" id="creceta">
+            @Html.DisplayFor(modelItem => item.receta.nombre, new { htmlAttributes = new { @id = "recetaProduccion" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cantidad)
+        <td class="colum4" id="ccantidad">
+            @Html.DisplayFor(modelItem => item.cantidad, new { htmlAttributes = new { @id = "cantidad" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.costo_receta_kilo)
+        <td class="colum5" id="ccostoreceta">
+            @Html.DisplayFor(modelItem => item.costo_receta_kilo, new { htmlAttributes = new { @id = "costoKilo" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.costo_produccion)
+        <td class="colum6" id="ccostoproduccion">
+            @Html.DisplayFor(modelItem => item.costo_produccion, new { htmlAttributes = new { @id = "costoProduccion" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor_venta_kilo)
+        <td class="colum7" id="cventakilo">
+            @Html.DisplayFor(modelItem => item.valor_venta_kilo, new { htmlAttributes = new { @id = "ventaKilo" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor_total_venta)
+        <td class="colum8" id="cventatotal">
+            @Html.DisplayFor(modelItem => item.valor_total_venta, new { htmlAttributes = new { @id = "ventaTotal" } })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rentabilidad_produccion)
+        <td class="colum9" id="crentabilidad">
+            @Html.DisplayFor(modelItem => item.rentabilidad_produccion, new { htmlAttributes = new { @id = "rentabilidad" } })
         </td>
+
 
 
 
@@ -91,5 +93,5 @@
         {
             < p > No existen datos</ p >
         }
-    }
+    
 </table>

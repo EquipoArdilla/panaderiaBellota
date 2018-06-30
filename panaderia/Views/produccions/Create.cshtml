@@ -14,6 +14,8 @@
 <div class="form-horizontal">
     <h4>produccion</h4>
     <hr />
+     
+
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.fecha_produccion, "Fecha Produccion", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -48,40 +50,40 @@
     </div>
 
     <div class="form-group">
-         @Html.LabelFor(model => model.costo_produccion, htmlAttributes: new { @class = "control-label col-md-2" })
-         <div class="col-md-10">
-             @Html.EditorFor(model => model.costo_produccion, new { htmlAttributes = new { @class = "form-control" } })
-             @Html.ValidationMessageFor(model => model.costo_produccion, "", new { @class = "text-danger" })
-          </div>
-    </div>
-
-            
-   <div class="form-group">
-         @Html.LabelFor(model => model.valor_venta_kilo, htmlAttributes: new { @class = "control-label col-md-2" })
-         <div class="col-md-10">
-             @Html.EditorFor(model => model.valor_venta_kilo, new { htmlAttributes = new { @class = "form-control" } })
-             @Html.ValidationMessageFor(model => model.valor_venta_kilo, "", new { @class = "text-danger" })
-         </div>
-    </div>
-
-   <div class="form-group">
-         @Html.LabelFor(model => model.valor_total_venta, htmlAttributes: new { @class = "control-label col-md-2" })
-         <div class="col-md-10">
-             @Html.EditorFor(model => model.valor_total_venta, new { htmlAttributes = new { @class = "form-control" } })
-             @Html.ValidationMessageFor(model => model.valor_total_venta, "", new { @class = "text-danger" })
-         </div>
-    </div>
-
-   <div class="form-group">
-         @Html.LabelFor(model => model.rentabilidad_produccion, htmlAttributes: new { @class = "control-label col-md-2" })
-         <div class="col-md-10">
-             @Html.EditorFor(model => model.rentabilidad_produccion, new { htmlAttributes = new { @class = "form-control" } })
-             @Html.ValidationMessageFor(model => model.rentabilidad_produccion, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.costo_produccion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.costo_produccion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.costo_produccion, "", new { @class = "text-danger" })
         </div>
     </div>
-            
 
-       <div class="form-group">
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.valor_venta_kilo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.valor_venta_kilo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.valor_venta_kilo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.valor_total_venta, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.valor_total_venta, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.valor_total_venta, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.rentabilidad_produccion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.rentabilidad_produccion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.rentabilidad_produccion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" id="Grabar" value="Grabar" class="btn btn-default " />
         </div>
@@ -92,4 +94,18 @@
 <div>
     @Html.ActionLink("Volver", "Index")
 </div>
+<script>
+    function valida(e) {
+        tecla = (document.all) ? e.keyCode : e.which;
 
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla == 8) {
+            return true;
+        }
+
+        // Patron de entrada, en este caso solo acepta numeros
+        patron = /[0-9]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+    }
+</script>
