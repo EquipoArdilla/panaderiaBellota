@@ -66,13 +66,17 @@ namespace panaderia.Controllers
                 detalle_receta dr = new detalle_receta();
                 producto pr = new producto();
                 receta rt = new receta();
-                var query = from rtd in db.detalle_receta where rtd.productoId == d.productoId && rtd.recetaId == d.recetaId select rtd.cantidad;
-                foreach (int grp in query)
-                {
-                    cantidadD = grp;
-                }
-                if (cantidadD != 0) throw new ArgumentException("Product not found");
 
+                //var query = from rtd in db.detalle_receta group rtd.cantidad by new { productoId = rtd.productoId, recetaId = rtd.recetaId };
+                //foreach (var grp in query)
+                //{
+                //    foreach (var listing in grp)
+                //    {
+                //        cantidadD = (int)listing;
+                //    }
+                //}
+
+                //Marco puede usar esto como ejemplo
                 rt = db.receta.Find(d.recetaId);
                 pr = db.producto.Find(d.productoId);
                 dr.cantidad = d.cantidad;
@@ -88,15 +92,13 @@ namespace panaderia.Controllers
 
                 // hasta aqui.
 
+
             }
             catch (Exception e)
             {
-                ModelState.AddModelError("error", "Error al Agregar Detalle Receta"+e);
+                ModelState.AddModelError("Error al Agregar Detalle Receta", e);
             }
-
             return RedirectToAction("Index", "DetalleReceta", new { id = d.recetaId });
-
-
         }
         public ActionResult EliminarInsumo(int productoId, int recetaId) // Captura de datos 
         {
@@ -111,13 +113,14 @@ namespace panaderia.Controllers
                 rt = db.receta.Find(recetaId);
                 pr = db.producto.Find(productoId);
                 db.detalle_receta.Attach(dr);
-
-                var query = from rtd in db.detalle_receta  where rtd.productoId == proId && rtd.recetaId == recId select rtd.cantidad;
-                foreach (int grp in query)
+                var query = from rtd in db.detalle_receta group rtd.cantidad by new { productoId = rtd.productoId, recetaId = rtd.recetaId };
+                foreach (var grp in query)
                 {
-                    cantidadD = grp;
+                    foreach (var listing in grp)
+                    {
+                        cantidadD = (int) listing;
+                    }
                 }
-
                 rt.costo_receta = Convert.ToInt16(rt.costo_receta) - (cantidadD * ((Convert.ToInt16(pr.precio) / Convert.ToInt16(pr.formato))));
                 db.detalle_receta.Remove(dr); //remuevo 
                 db.SaveChanges();
