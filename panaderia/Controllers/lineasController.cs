@@ -16,9 +16,15 @@ namespace panaderia.Controllers
         private PanaderiaEntities db = new PanaderiaEntities();
 
         // GET: lineas
-        public ActionResult Index()
+        public ActionResult Index(string Nombre)
         {
-            return View(db.linea.ToList());
+            var busqueda = from s in db.linea select s;
+
+            if (!String.IsNullOrEmpty(Nombre))
+            {
+                busqueda = busqueda.Where(s => s.nombre.Contains(Nombre));
+            }
+            return View(busqueda.ToList());
         }
 
         // GET: lineas/Details/5
