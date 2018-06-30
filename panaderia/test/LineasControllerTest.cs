@@ -21,7 +21,7 @@ namespace panaderia.Tests.Controllers
             lineasController controller = new lineasController();
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = controller.Index("") as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
