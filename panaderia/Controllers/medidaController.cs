@@ -110,9 +110,9 @@ namespace panaderia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            medida medida = db.medida.Find(id);
-            db.medida.Remove(medida);
-            db.SaveChanges();
+            //medida medida = db.medida.Find(id);
+            //db.medida.Remove(medida);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
